@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">MachineDone</string>
-    <string name="button_add">+  添加</string>
-    <string name="button_main">+  添加</string>
+    <string name="button_main">十   添加项目</string>
+    <string name="toolbar_title">所有项目</string>
 </resources>
