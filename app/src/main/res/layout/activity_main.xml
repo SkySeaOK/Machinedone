@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.develop.machinedone.MainActivity">
+    tools:context="com.example.develop.machinedone.main.MainActivity">
     <ListView
         android:id="@+id/main_list"
         android:layout_weight="1"
@@ -17,8 +17,4 @@
     android:text="@string/button_main"
     android:layout_width="match_parent"
     android:layout_height="wrap_content" />
-    <Button
-        android:text="@string/button_main"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
 </LinearLayout>
