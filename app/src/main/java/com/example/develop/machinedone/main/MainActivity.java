@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //        getWindow()
 //                .setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
 //                        WindowManager.LayoutParams.FLAG_FULLSCREEN);//隐藏状态栏
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.main_activity);
         Toolbar toolbar = findViewById(R.id.main_toolbar);
         ListView list = findViewById(R.id.main_list);
         Button btn = findViewById(R.id.addlist);
