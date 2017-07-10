@@ -6,6 +6,6 @@ package com.example.develop.machinedone.bean;
 
 public class MainList
 {
-    private  String title;
-    private  String detail;
+    public    String title;
+    public    String detail;
 }
