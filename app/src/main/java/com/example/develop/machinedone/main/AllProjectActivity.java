@@ -23,7 +23,7 @@ public class AllProjectActivity extends AppCompatActivity implements View.OnClic
 //                        WindowManager.LayoutParams.FLAG_FULLSCREEN);//隐藏状态栏
         setContentView(R.layout.all_project);
         ImageView toolbarImg = findViewById(R.id.toolbar_img);
-        ImageView toolbarImg1 = findViewById(R.id.toolbar_img1);
+        ImageView toolbarImg1 = findViewById(R.id.toolbar_back);
         TextView username = findViewById(R.id.toolbar_username);
         ListView list = findViewById(R.id.main_list);
         Button btn = findViewById(R.id.addlist);

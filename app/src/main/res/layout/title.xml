@@ -6,7 +6,7 @@
     android:background="#fff">
 
         <ImageView
-            android:id="@+id/toolbar_img1"
+            android:id="@+id/toolbar_back"
             android:layout_centerInParent="true"
             android:layout_gravity="start"
             android:layout_width="wrap_content"
