@@ -9,6 +9,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.develop.machinedone.R;
@@ -24,9 +25,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.main_activity);
         Toolbar toolbar = findViewById(R.id.main_toolbar);
         ImageView toolbarImg = findViewById(R.id.toolbar_img);
+       TextView username = findViewById(R.id.toolbar_username);
         ListView list = findViewById(R.id.main_list);
         Button btn = findViewById(R.id.addlist);
         toolbarImg.setImageResource(R.mipmap.ic_launcher);
+        username.setText("User");
         toolbar.setTitle("");
         toolbar.setLogo(R.mipmap.ic_launcher);
         setSupportActionBar(toolbar);
