@@ -7,4 +7,7 @@
     <string name="write_projectName">请填写项目名称</string>
     <string name="write_projectDescribe">最多输入500个字符</string>
     <string name="create_project">提交</string>
+    <string name="item_title">title</string>
+    <string name="title_name">项目名称：</string>
+    <string name="detail_name">详情：</string>
 </resources>

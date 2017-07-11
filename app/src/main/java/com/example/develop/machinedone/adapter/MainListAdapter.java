@@ -1,9 +1,13 @@
 package com.example.develop.machinedone.adapter;
 
+import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.TextView;
 
+import com.example.develop.machinedone.R;
 import com.example.develop.machinedone.bean.MainList;
 
 import java.util.List;
@@ -16,18 +20,14 @@ public class MainListAdapter extends BaseAdapter
 {
    private String title;
     private String detail;
-    private final MainList mainL;
-    private List<MainList> mainlist;
+    private List<MainList.MenuitemBean> mainlist;
+    private  Context view;
 
-    public MainListAdapter(List<MainList> mainlist)//预留传参
+    public MainListAdapter(Context context,List<MainList.MenuitemBean> mainlist)//预留传参
     {
 
         this.mainlist=mainlist;
-
-        mainL = mainlist.get(0);
-
-
-
+        view = context;
 
     }
     @Override
@@ -46,7 +46,23 @@ public class MainListAdapter extends BaseAdapter
     }
 
     @Override
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        return null;
+    public View getView(int position, View convertView, ViewGroup viewGroup) {
+        View inflate;
+        if (convertView==null) {
+            inflate = LayoutInflater.from(view).inflate(R.layout.main_list_item,null);
+
+        }
+        else
+        {
+            inflate=  convertView;
+        }
+        TextView textTitle = inflate.findViewById(R.id.list_title);
+        TextView textDetail = inflate.findViewById(R.id.list_detail);
+        MainList.MenuitemBean mainList = mainlist.get(position);
+        textTitle.setText(  mainList.getValue());
+        textDetail.setText(mainList.getOnclick());
+
+
+        return inflate;
     }
 }
