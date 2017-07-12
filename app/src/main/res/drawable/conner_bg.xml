@@ -4,4 +4,4 @@
     android:layout_width="match_parent">
     <solid android:color="#fff" /> //圆角View的背景颜色
     <corners android:radius="20dp"/>
-</shape>  
+</shape>

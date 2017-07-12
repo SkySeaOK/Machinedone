@@ -12,29 +12,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.develop.machinedone.R;
-import com.example.develop.machinedone.adapter.MainListAdapter;
-import com.example.develop.machinedone.api.ApiService;
-import com.example.develop.machinedone.bean.MainList;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class AllProjectActivity extends AppCompatActivity implements View.OnClickListener {
 
-   private String url="http://192.168.14.2:8080/";
-  private List<MainList.MenuitemBean>list= new ArrayList<>();
-    private ListView listView;
-    private MainListAdapter mainListAdapter;
-
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 //        getWindow()
 //                .setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
@@ -43,9 +25,7 @@ public class AllProjectActivity extends AppCompatActivity implements View.OnClic
         ImageView toolbarImg = findViewById(R.id.toolbar_img);
         ImageView toolbarImg1 = findViewById(R.id.toolbar_back);
         TextView username = findViewById(R.id.toolbar_username);
-        listView = findViewById(R.id.main_list);
-        //将页面和list数据传入 适配器 （MainListAdapter）
-        mainListAdapter = new MainListAdapter(this, list);
+        ListView list = findViewById(R.id.main_list);
         Button btn = findViewById(R.id.addlist);
         toolbarImg.setImageResource(R.mipmap.ic_launcher);
         toolbarImg1.setImageResource(R.mipmap.ic_launcher);
@@ -54,31 +34,6 @@ public class AllProjectActivity extends AppCompatActivity implements View.OnClic
         toolbarImg.setOnClickListener(this);
         TextView toolbarTitle = findViewById(R.id.title_toolbar);
         toolbarTitle.setText(R.string.toolbar_title);
-
-        //使用Retrofit 获取网络数据
-        Retrofit build = new Retrofit.Builder().baseUrl(url)
-                // 解析json
-                .addConverterFactory(GsonConverterFactory.create()).build();
-        //关联到ApiService
-        ApiService apiService = build.create(ApiService.class);
-        //获取服务器回调数据
-        Call<MainList> mainListCall = apiService.getList();
-        mainListCall.enqueue(new Callback<MainList>() {
-            @Override
-            public void onResponse(Call<MainList> call, Response<MainList> response)
-            {
-                //使用response获得参数， 添加到 list容器中， 用于listview传入适配器
-             list.addAll(response.body().getMenuitem());
-                listView.setAdapter(mainListAdapter);
-            }
-
-            @Override
-            public void onFailure(Call<MainList> call, Throwable t)
-            {
-                //网络连接失败时调用此方法
-            }
-        });
-
     }
     @Override
     //添加数据到listview中

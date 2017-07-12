@@ -146,6 +146,7 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:text="0"
+            android:textColor="#fff"
             android:background="@drawable/bluecircle_bg"
             />
     </GridLayout>
@@ -189,7 +190,7 @@
             android:layout_height="30dp"
             android:layout_width="30dp"
             android:layout_columnWeight="1"
-            android:src="@mipmap/ic_asssignment"/>
+            android:src="@mipmap/ic_assignment"/>
 
         <TextView
             android:layout_columnWeight="8"
@@ -203,6 +204,7 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:text="0"
+            android:textColor="#fff"
             android:background="@drawable/orangecircle_bg"
             />
     </GridLayout>
