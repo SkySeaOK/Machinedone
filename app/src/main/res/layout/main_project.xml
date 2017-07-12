@@ -131,18 +131,16 @@
         <ImageView
             android:layout_height="30dp"
             android:layout_width="30dp"
-            android:layout_columnWeight="1"
             android:src="@mipmap/ic_help"/>
 
         <TextView
-            android:layout_columnWeight="8"
+            android:layout_columnWeight="1"
             android:layout_gravity="center_vertical"
             android:text="活动问题"/>
 
         <TextView
             android:layout_height="20dp"
             android:layout_width="20dp"
-            android:layout_columnWeight="1"
             android:layout_gravity="center"
             android:gravity="center"
             android:text="0"
@@ -163,13 +161,12 @@
         android:layout_marginBottom="1dp">
 
         <ImageView
-            android:layout_height="30dp"
             android:layout_width="30dp"
-            android:layout_columnWeight="1"
-            android:src="@mipmap/ic_apps"/>
+            android:layout_height="30dp"
+            android:src="@mipmap/ic_apps" />
 
         <TextView
-            android:layout_columnWeight="8"
+            android:layout_columnWeight="1"
             android:layout_gravity="center_vertical"
             android:text="所有问题"/>
 
@@ -189,18 +186,16 @@
         <ImageView
             android:layout_height="30dp"
             android:layout_width="30dp"
-            android:layout_columnWeight="1"
             android:src="@mipmap/ic_assignment"/>
 
         <TextView
-            android:layout_columnWeight="8"
+            android:layout_columnWeight="1"
             android:layout_gravity="center_vertical"
             android:text="我的待办"/>
 
         <TextView
             android:layout_height="20dp"
             android:layout_width="20dp"
-            android:layout_columnWeight="1"
             android:layout_gravity="center"
             android:gravity="center"
             android:text="0"
