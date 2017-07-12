@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F4F4F4"
+    tools:context="com.example.develop.machinedone.main.MainProjectActivity"
+    android:orientation="vertical">
+
+    <include layout="@layout/title"/>
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:background="#fff"
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_launcher"/>
+
+        <GridLayout
+            android:orientation="vertical"
+            android:layout_weight="2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:rowCount="4"
+            android:columnCount="4"
+            >
+
+            <TextView
+                android:layout_row="0"
+                android:layout_column="0"
+                android:layout_columnSpan="2"
+                android:text="Test"
+                android:textColor="#000"
+                android:layout_gravity="fill"/>
+
+            <TextView
+                android:layout_row="1"
+                android:layout_column="0"
+                android:layout_columnSpan="2"
+                android:text="Jason 创建"
+                android:textColor="#000"
+                android:layout_gravity="fill"/>
+
+            <TextView
+                android:layout_row="2"
+                android:layout_column="0"
+                android:text="问题总数:"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill"/>
+
+            <TextView
+                android:layout_row="2"
+                android:layout_column="1"
+                android:text="0"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill"/>
+
+            <TextView
+                android:layout_row="2"
+                android:layout_column="2"
+                android:text="已解决:"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill"/>
+
+            <TextView
+                android:layout_row="2"
+                android:layout_column="3"
+                android:text="0"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill"/>
+
+            <TextView
+                android:layout_row="3"
+                android:layout_column="0"
+                android:text="为解决:"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill"/>
+
+            <TextView
+                android:layout_row="3"
+                android:layout_column="1"
+                android:text="0"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill"/>
+
+            <TextView
+                android:layout_row="3"
+                android:layout_column="2"
+                android:text="待审核:"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill"/>
+
+            <TextView
+                android:layout_row="3"
+                android:layout_column="3"
+                android:text="0"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill"/>
+        </GridLayout>
+    </LinearLayout>
+
+    <android.support.v7.widget.SearchView
+        android:id="@+id/searchView"
+        android:layout_margin="8dp"
+        app:iconifiedByDefault="false"
+        android:background="@drawable/conner_bg"
+        app:queryHint="根据编号、标题、模块搜索"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <GridLayout
+        android:paddingLeft="5dp"
+        android:paddingRight="20dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:background="#fff"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="3"
+        android:layout_marginBottom="1dp">
+
+        <ImageView
+            android:layout_height="30dp"
+            android:layout_width="30dp"
+            android:layout_columnWeight="1"
+            android:src="@mipmap/ic_help"/>
+
+        <TextView
+            android:layout_columnWeight="8"
+            android:layout_gravity="center_vertical"
+            android:text="活动问题"/>
+
+        <TextView
+            android:layout_height="20dp"
+            android:layout_width="20dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="0"
+            android:background="@drawable/bluecircle_bg"
+            />
+    </GridLayout>
+
+    <GridLayout
+        android:paddingLeft="5dp"
+        android:paddingRight="20dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:background="#fff"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="3"
+        android:layout_marginBottom="1dp">
+
+        <ImageView
+            android:layout_height="30dp"
+            android:layout_width="30dp"
+            android:layout_columnWeight="1"
+            android:src="@mipmap/ic_apps"/>
+
+        <TextView
+            android:layout_columnWeight="8"
+            android:layout_gravity="center_vertical"
+            android:text="所有问题"/>
+
+    </GridLayout>
+
+    <GridLayout
+        android:paddingLeft="5dp"
+        android:paddingRight="20dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:background="#fff"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="3"
+        android:layout_marginBottom="1dp">
+
+        <ImageView
+            android:layout_height="30dp"
+            android:layout_width="30dp"
+            android:layout_columnWeight="1"
+            android:src="@mipmap/ic_asssignment"/>
+
+        <TextView
+            android:layout_columnWeight="8"
+            android:layout_gravity="center_vertical"
+            android:text="我的待办"/>
+
+        <TextView
+            android:layout_height="20dp"
+            android:layout_width="20dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="0"
+            android:background="@drawable/orangecircle_bg"
+            />
+    </GridLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="#F4F4F4"/>
+
+    <Button
+        android:id="@+id/create_btn"
+        android:layout_gravity="end"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/create_question"
+        android:background="#56B5D3"/>
+</LinearLayout>
