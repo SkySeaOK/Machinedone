@@ -56,7 +56,14 @@ public class MainProjectActivity extends AppCompatActivity implements View.OnCli
     }
 
     @Override
-    public void onClick(View view) {
+    public void onClick(View view)
+    {
+        switch (view.getId())
+        {
+            // 返回按钮
+            case R.id.toolbar_back: finish();
+                break;
+        }
 
     }
 }

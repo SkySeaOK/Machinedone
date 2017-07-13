@@ -8,4 +8,8 @@
     <string name="write_projectDescribe">最多输入500个字符</string>
     <string name="create_project">提交</string>
     <string name="create_question">+ 添加问题</string>
+    <string name="test">test</string>
+    <string name="item_problem">活动问题</string>
+    <string name="item_commission">我的代办</string>
+    <string name="item_time">创建时间</string>
 </resources>
