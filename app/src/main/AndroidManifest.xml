@@ -26,9 +26,13 @@
         <activity
             android:name=".main.MainProjectActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".main.ProblemActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            ></activity>
+        <activity
+            android:name=".main.CreateQuestionActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".main.ProblemActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

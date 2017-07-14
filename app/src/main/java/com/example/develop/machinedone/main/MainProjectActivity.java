@@ -29,7 +29,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class MainProjectActivity extends AppCompatActivity implements View.OnClickListener {
 
     private SearchView sv;
-    private   String url="http://192.168.14.2:8080/";
+    private   String url="http://192.168.1.111:8080/";
     private int position;
     private TextView projectTitle;
     private TextView projectUser;
@@ -43,6 +43,7 @@ public class MainProjectActivity extends AppCompatActivity implements View.OnCli
         TextView username = findViewById(R.id.toolbar_username);
         ImageView toolbarImg = findViewById(R.id.toolbar_img);
         ImageView toolbarBack = findViewById(R.id.toolbar_back);
+        Button createQuestion = findViewById(R.id.create_btn);
 
         toolbarImg.setImageResource(R.mipmap.ic_launcher);
         toolbarBack.setImageResource(R.mipmap.ic_title_back);
@@ -75,6 +76,7 @@ public class MainProjectActivity extends AppCompatActivity implements View.OnCli
         // setSupportActionBar(toolbar);
         toolbarImg.setOnClickListener(this);
         toolbarBack.setOnClickListener(this);
+        createQuestion.setOnClickListener(this);
         activeProblem.setOnClickListener(this);
         TextView toolbarTitle = findViewById(R.id.title_toolbar);
         toolbarTitle.setText(R.string.toolbar_title1);
@@ -105,11 +107,17 @@ public class MainProjectActivity extends AppCompatActivity implements View.OnCli
         switch (view.getId())
         {
             // 返回按钮
-            case R.id.toolbar_back: finish();
+            case R.id.toolbar_back:
+                finish();
+                break;
+
+            case R.id.create_btn:
+                Intent intent = new Intent(MainProjectActivity.this,CreateQuestionActivity.class);
+                startActivity(intent);
                 break;
             case R.id.active_problem:
-                Intent intent = new Intent(this, ProblemActivity.class);
-                startActivity(intent);
+                Intent intent1 = new Intent(this, ProblemActivity.class);
+                startActivity(intent1);
                 break;
         }
 
