@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.develop.machinedone.R;
 import com.example.develop.machinedone.api.ApiService;
@@ -39,12 +40,13 @@ public class MainProjectActivity extends AppCompatActivity implements View.OnCli
         setContentView(R.layout.main_project);
         projectTitle = findViewById(R.id.project_title);
         projectUser = findViewById(R.id.project_user);
-
+        TextView username = findViewById(R.id.toolbar_username);
         ImageView toolbarImg = findViewById(R.id.toolbar_img);
         ImageView toolbarBack = findViewById(R.id.toolbar_back);
-        TextView username = findViewById(R.id.toolbar_username);
+
         toolbarImg.setImageResource(R.mipmap.ic_launcher);
         toolbarBack.setImageResource(R.mipmap.ic_title_back);
+        TextView activeProblem = findViewById(R.id.active_problem);
         sv = findViewById(R.id.searchView);
         //通过getIntent获取AllProject传递过来的position下标
         Intent intent = getIntent();
@@ -73,6 +75,7 @@ public class MainProjectActivity extends AppCompatActivity implements View.OnCli
         // setSupportActionBar(toolbar);
         toolbarImg.setOnClickListener(this);
         toolbarBack.setOnClickListener(this);
+        activeProblem.setOnClickListener(this);
         TextView toolbarTitle = findViewById(R.id.title_toolbar);
         toolbarTitle.setText(R.string.toolbar_title1);
         deletedown();
@@ -104,7 +107,12 @@ public class MainProjectActivity extends AppCompatActivity implements View.OnCli
             // 返回按钮
             case R.id.toolbar_back: finish();
                 break;
+            case R.id.active_problem:
+                Intent intent = new Intent(this, ProblemActivity.class);
+                startActivity(intent);
+                break;
         }
+
 
     }
 }

@@ -136,6 +136,7 @@
             android:src="@mipmap/ic_help"/>
 
         <TextView
+            android:id="@+id/active_problem"
             android:layout_columnWeight="1"
             android:layout_gravity="center_vertical"
             android:text="活动问题"/>

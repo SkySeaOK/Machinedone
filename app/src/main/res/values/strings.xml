@@ -12,4 +12,7 @@
     <string name="item_problem">活动问题</string>
     <string name="item_commission">我的代办</string>
     <string name="item_time">创建时间</string>
+    <string name="active_problem">活动问题</string>
+    <string name="all_problem">所有问题</string>
+    <string name="my_problem">我的待办</string>
 </resources>
