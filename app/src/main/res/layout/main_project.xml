@@ -35,6 +35,7 @@
             >
 
             <TextView
+                android:id="@+id/project_title"
                 android:layout_row="0"
                 android:layout_column="0"
                 android:layout_columnSpan="2"
@@ -43,6 +44,7 @@
                 android:layout_gravity="fill"/>
 
             <TextView
+                android:id="@+id/project_user"
                 android:layout_row="1"
                 android:layout_column="0"
                 android:layout_columnSpan="2"
