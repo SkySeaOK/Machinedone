@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FEFEFE"
+    >
+    <LinearLayout
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/position_num"
+                android:textColor="#303F9F"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="15dp"
+                android:text="num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:textSize="12sp"
+                android:paddingRight="3dp"
+                android:paddingLeft="3dp"
+                android:paddingBottom="1dp"
+                android:paddingTop="1dp"
+                android:background="#ff00"
+                android:textColor="#fff"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="8dp"
+                android:text="改进"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/pro_title"
+                android:textColor="#303F9F"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="8dp"
+                android:text="title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <TextView
+            android:id="@+id/pro_detail"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="8dp"
+            android:text="detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/cre_time"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="8dp"
+            android:text="创建时间"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_weight="2"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:paddingBottom="2dp"
+            android:paddingTop="2dp"
+            android:paddingRight="7dp"
+            android:paddingLeft="7dp"
+            android:textSize="11sp"
+            android:background="#fff000"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="20dp"
+            android:text="未解决"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:paddingBottom="2dp"
+            android:paddingTop="2dp"
+            android:paddingRight="7dp"
+            android:paddingLeft="7dp"
+            android:textSize="11sp"
+            android:background="#ff00"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="20dp"
+            android:text="急"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+</LinearLayout>

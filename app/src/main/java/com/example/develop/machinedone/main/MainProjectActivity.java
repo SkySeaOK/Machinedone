@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.example.develop.machinedone.R;
 import com.example.develop.machinedone.api.ApiService;
 import com.example.develop.machinedone.bean.MainList;
+import com.example.develop.machinedone.bean.ProblemBean;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -33,6 +34,9 @@ public class MainProjectActivity extends AppCompatActivity implements View.OnCli
     private int position;
     private TextView projectTitle;
     private TextView projectUser;
+    private ApiService apiService;
+    private Retrofit build;
+    private TextView projectNum;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +47,7 @@ public class MainProjectActivity extends AppCompatActivity implements View.OnCli
         TextView username = findViewById(R.id.toolbar_username);
         ImageView toolbarImg = findViewById(R.id.toolbar_img);
         ImageView toolbarBack = findViewById(R.id.toolbar_back);
-
+        projectNum = findViewById(R.id.project_num);
         toolbarImg.setImageResource(R.mipmap.ic_launcher);
         toolbarBack.setImageResource(R.mipmap.ic_title_back);
         TextView activeProblem = findViewById(R.id.active_problem);
@@ -53,8 +57,8 @@ public class MainProjectActivity extends AppCompatActivity implements View.OnCli
         position = intent.getIntExtra("position", 0);
         username.setText("User");
         //通过retrofit获取网络数据，通过传递过来的position去提取对应的数据
-        Retrofit build = new Retrofit.Builder().baseUrl(url).addConverterFactory(GsonConverterFactory.create()).build();
-        ApiService apiService = build.create(ApiService.class);
+        build = new Retrofit.Builder().baseUrl(url).addConverterFactory(GsonConverterFactory.create()).build();
+        apiService = build.create(ApiService.class);
         Call<MainList> list = apiService.getList();
         list.enqueue(new Callback<MainList>() {
             @Override
@@ -69,6 +73,21 @@ public class MainProjectActivity extends AppCompatActivity implements View.OnCli
 
             @Override
             public void onFailure(Call<MainList> call, Throwable t) {
+
+            }
+        });
+        Call<ProblemBean> list_t = apiService.getList_t();
+        list_t.enqueue(new Callback<ProblemBean>() {
+            @Override
+            public void onResponse(Call<ProblemBean> call, Response<ProblemBean> response) {
+                List<ProblemBean.MenuitemBean> menuitem = response.body().getMenuitem();
+                int size = menuitem.size();
+                projectNum.setText(size+"");
+
+            }
+
+            @Override
+            public void onFailure(Call<ProblemBean> call, Throwable t) {
 
             }
         });

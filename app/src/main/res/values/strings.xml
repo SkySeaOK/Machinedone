@@ -15,4 +15,7 @@
     <string name="active_problem">活动问题</string>
     <string name="all_problem">所有问题</string>
     <string name="my_problem">我的待办</string>
+    <string name="project_sort"><![CDATA[排序<>]]></string>
+    <string name="project_screen">筛选</string>
+    <string name="add_problem">+ 添加问题</string>
 </resources>
