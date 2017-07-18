@@ -2,77 +2,77 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
     android:background="#fff"
-    >
-    <ImageView
-        android:layout_gravity="center"
-        android:foregroundGravity="center"
-        android:id="@+id/item_logo"
-        android:layout_weight="1"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content" />
-    <LinearLayout
-        android:padding="10dp"
-        android:orientation="vertical"
+    android:orientation="horizontal">
 
-        android:layout_weight="2.5"
+    <ImageView
+        android:id="@+id/item_logo"
         android:layout_width="0dp"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:foregroundGravity="center" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="2.5"
+        android:orientation="vertical"
+        android:padding="10dp">
+
         <TextView
             android:id="@+id/item_title"
-            android:textSize="17sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="start"
             android:text="@string/test"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-<LinearLayout
-    android:layout_marginTop="5dp"
-    android:orientation="horizontal"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
-    <TextView
-        android:text="@string/item_problem"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-    <TextView
-        android:layout_marginLeft="5dp"
-        android:layout_height="20dp"
-        android:layout_width="20dp"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:text="0"
-        android:textColor="#fff"
-        android:background="@drawable/bluecircle_bg"
-        />
+            android:textSize="17sp" />
 
-    <TextView
-        android:layout_marginLeft="15dp"
-        android:text="@string/item_commission"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-    <TextView
-        android:layout_marginLeft="5dp"
-        android:layout_height="20dp"
-        android:layout_width="20dp"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:text="0"
-        android:textColor="#fff"
-        android:background="@drawable/orangecircle_bg"
-        />
-</LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/item_problem" />
+
+            <TextView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/bluecircle_bg"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="#fff" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:text="@string/item_commission" />
+
+            <TextView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/orangecircle_bg"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="#fff" />
+        </LinearLayout>
+
         <TextView
-            android:textSize="10sp"
             android:id="@+id/create_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:text="@string/item_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:textSize="10sp" />
 
     </LinearLayout>
-
-
-
-    
 </LinearLayout>

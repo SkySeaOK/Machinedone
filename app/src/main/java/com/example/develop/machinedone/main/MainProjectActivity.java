@@ -48,6 +48,8 @@ public class MainProjectActivity extends AppCompatActivity implements View.OnCli
         ImageView toolbarImg = findViewById(R.id.toolbar_img);
         ImageView toolbarBack = findViewById(R.id.toolbar_back);
         projectNum = findViewById(R.id.project_num);
+        Button createQuestion = findViewById(R.id.create_btn);
+
         toolbarImg.setImageResource(R.mipmap.ic_launcher);
         toolbarBack.setImageResource(R.mipmap.ic_title_back);
         TextView activeProblem = findViewById(R.id.active_problem);
@@ -57,8 +59,8 @@ public class MainProjectActivity extends AppCompatActivity implements View.OnCli
         position = intent.getIntExtra("position", 0);
         username.setText("User");
         //通过retrofit获取网络数据，通过传递过来的position去提取对应的数据
-        build = new Retrofit.Builder().baseUrl(url).addConverterFactory(GsonConverterFactory.create()).build();
-        apiService = build.create(ApiService.class);
+        Retrofit build = new Retrofit.Builder().baseUrl(url).addConverterFactory(GsonConverterFactory.create()).build();
+        ApiService apiService = build.create(ApiService.class);
         Call<MainList> list = apiService.getList();
         list.enqueue(new Callback<MainList>() {
             @Override
@@ -94,6 +96,7 @@ public class MainProjectActivity extends AppCompatActivity implements View.OnCli
         // setSupportActionBar(toolbar);
         toolbarImg.setOnClickListener(this);
         toolbarBack.setOnClickListener(this);
+        createQuestion.setOnClickListener(this);
         activeProblem.setOnClickListener(this);
         TextView toolbarTitle = findViewById(R.id.title_toolbar);
         toolbarTitle.setText(R.string.toolbar_title1);
@@ -124,12 +127,19 @@ public class MainProjectActivity extends AppCompatActivity implements View.OnCli
         switch (view.getId())
         {
             // 返回按钮
-            case R.id.toolbar_back: finish();
+            case R.id.toolbar_back:
+                finish();
                 break;
-            case R.id.active_problem:
-                Intent intent = new Intent(this, ProblemActivity.class);
+
+            case R.id.create_btn:
+                Intent intent = new Intent(MainProjectActivity.this,CreateQuestionActivity.class);
                 startActivity(intent);
                 break;
+            case R.id.active_problem:
+                Intent intent1 = new Intent(this, ProblemActivity.class);
+                startActivity(intent1);
+                break;
+
         }
 
 

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F4F4F4">
+
+    <LinearLayout
+        android:id="@+id/red"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="1dp"
+        android:padding="5dp">
+
+        <TextView
+            android:layout_gravity="center"
+            android:layout_width="10dp"
+            android:background="#FF342E"
+            android:layout_height="10dp"
+            android:layout_marginRight="10dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="缺陷"
+            android:textColor="#000"
+            android:layout_gravity="center"
+            android:gravity="start"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/orange"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="1dp"
+        android:padding="5dp">
+
+        <TextView
+            android:layout_gravity="center"
+            android:layout_width="10dp"
+            android:background="#FFAE25"
+            android:layout_height="10dp"
+            android:layout_marginRight="10dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="改进"
+            android:textColor="#000"
+            android:layout_gravity="center"
+            android:gravity="start"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/blue"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="1dp"
+        android:padding="5dp">
+
+        <TextView
+            android:layout_gravity="center"
+            android:layout_width="10dp"
+            android:background="#27C1FF"
+            android:layout_height="10dp"
+            android:layout_marginRight="10dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="任务"
+            android:textColor="#000"
+            android:layout_gravity="center"
+            android:gravity="start"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/green"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="1dp"
+        android:padding="5dp">
+
+        <TextView
+            android:layout_gravity="center"
+            android:layout_width="10dp"
+            android:background="#91FF19"
+            android:layout_height="10dp"
+            android:layout_marginRight="10dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="需求"
+            android:textColor="#000"
+            android:layout_gravity="center"
+            android:gravity="start"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>

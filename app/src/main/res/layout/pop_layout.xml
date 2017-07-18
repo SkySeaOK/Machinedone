@@ -26,6 +26,7 @@
         android:layout_height="1dp"
         android:background="#f4f4f4"/>
 
+
     <TextView
         android:paddingTop="5dp"
         android:paddingBottom="5dp"
@@ -44,6 +45,7 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="#f4f4f4"/>
+
 
     <TextView
         android:paddingTop="5dp"
