@@ -65,7 +65,7 @@ public class ProblemAdapter extends BaseAdapter
         TextView detail = inflate.findViewById(R.id.pro_detail);
         TextView time = inflate.findViewById(R.id.cre_time);
         Date date = new Date(System.currentTimeMillis());
-        num.setText("#"+i);
+        num.setText("#"+(i+1));
         titel.setText(list.get(i).getTitle());
         detail.setText(list.get(i).getDetail());
         //time.setText("USER创建于"+date);

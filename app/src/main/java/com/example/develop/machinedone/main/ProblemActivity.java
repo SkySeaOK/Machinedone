@@ -81,7 +81,7 @@ public class ProblemActivity extends AppCompatActivity implements View.OnClickLi
 
                 if(x){
                     title.setText("活动问题 ↑");
-
+                    mpopupWindow.dismiss();
                     x=false;
                 }else{
                     title.setText("活动问题 ↓");
