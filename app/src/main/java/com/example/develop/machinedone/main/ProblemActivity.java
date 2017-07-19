@@ -35,7 +35,7 @@ public class ProblemActivity extends AppCompatActivity implements View.OnClickLi
     private PopupWindow mpopupWindow;
     private LinearLayout linner;
     private ListView listView;
-    private   String url="http://192.168.1.110:8080/";
+    private   String url="http://192.168.1.111:8080/";
     private ProblemAdapter problemAdapter;
 
     @Override
