@@ -70,23 +70,27 @@ public class CreateQuestionActivity extends AppCompatActivity implements View.On
                 finish();
                 break;
             case R.id.question_type:
-                if (question_popupWindow != null && question_popupWindow.isShowing())
+                if (x)
                 {
                     question_popupWindow.dismiss();
+                    x = false;
                 }
                 else
                 {
                     showPopupWindow();
+                    x = true;
                 }
                 break;
             case R.id.priority_level:
-                if (level_popupWindow != null && level_popupWindow.isShowing())
+                if (x)
                 {
                     level_popupWindow.dismiss();
+                    x = false;
                 }
                 else
                 {
                     prioritylevel();
+                    x = true;
                 }
                 break;
             case R.id.red_defect:
