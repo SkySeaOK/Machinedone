@@ -30,7 +30,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class MainProjectActivity extends AppCompatActivity implements View.OnClickListener {
 
     private SearchView sv;
-    private   String url="http://192.168.14.2:8080/";
+    private   String url="http://192.168.1.111:8080/";
     private int position;
     private TextView projectTitle;
     private TextView projectUser;
