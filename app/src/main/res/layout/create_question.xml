@@ -211,5 +211,18 @@
             android:background="#fff"
             android:paddingLeft="10dp"/>
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#F4F4F4"/>
+
+        <Button
+            android:id="@+id/submit_btn"
+            android:layout_gravity="end"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/create_project"
+            android:background="#56B5D3"/>
     </LinearLayout>
 </RelativeLayout>

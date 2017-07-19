@@ -144,7 +144,8 @@ public class CreateQuestionActivity extends AppCompatActivity implements View.On
         orange_improve.setOnClickListener(this);
         blue_task.setOnClickListener(this);
         green_demand.setOnClickListener(this);
-        question_popupWindow = new PopupWindow(contentView,400,240);
+        question_popupWindow = new PopupWindow(contentView,400,0);
+        question_popupWindow.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
         question_popupWindow.setOutsideTouchable(true);
         question_popupWindow.showAsDropDown(linner_question,280,0);
         question_popupWindow.setFocusable(true);
@@ -162,7 +163,8 @@ public class CreateQuestionActivity extends AppCompatActivity implements View.On
         orange_higher.setOnClickListener(this);
         blue_medium.setOnClickListener(this);
         green_low.setOnClickListener(this);
-        level_popupWindow = new PopupWindow(contentView,400,240);
+        level_popupWindow = new PopupWindow(contentView,400,0);
+        level_popupWindow.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
         level_popupWindow.setOutsideTouchable(true);
         level_popupWindow.showAsDropDown(linner_level,280,0);
         level_popupWindow.setFocusable(true);
