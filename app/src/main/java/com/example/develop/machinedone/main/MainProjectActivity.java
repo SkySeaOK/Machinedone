@@ -10,7 +10,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.develop.machinedone.R;
 import com.example.develop.machinedone.api.ApiService;
@@ -18,7 +17,6 @@ import com.example.develop.machinedone.bean.MainList;
 import com.example.develop.machinedone.bean.ProblemBean;
 
 import java.lang.reflect.Field;
-import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -49,7 +47,6 @@ public class MainProjectActivity extends AppCompatActivity implements View.OnCli
         ImageView toolbarBack = findViewById(R.id.toolbar_back);
         projectNum = findViewById(R.id.project_num);
         Button createQuestion = findViewById(R.id.create_btn);
-
         toolbarImg.setImageResource(R.mipmap.ic_launcher);
         toolbarBack.setImageResource(R.mipmap.ic_title_back);
         TextView activeProblem = findViewById(R.id.active_problem);

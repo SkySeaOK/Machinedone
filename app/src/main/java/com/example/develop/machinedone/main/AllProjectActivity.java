@@ -31,7 +31,7 @@ public class AllProjectActivity extends AppCompatActivity implements View.OnClic
     List<MainList.MenuitemBean> menuitemBeans=new ArrayList<>();
     private MainListAdapter mainListAdapter;
     private ListView listView;
-    private   String url="http://192.168.1.110:8080/";
+    private   String url="http://192.168.1.111:8080/";
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -57,7 +57,7 @@ public class AllProjectActivity extends AppCompatActivity implements View.OnClic
         });
         Button btn = findViewById(R.id.addlist);
         toolbarImg.setImageResource(R.mipmap.ic_launcher);
-        toolbarImg1.setImageResource(R.mipmap.ic_launcher);
+        toolbarImg1.setImageResource(R.mipmap.ic_thok1);
         username.setText("User");
         btn.setOnClickListener(this);
         toolbarImg.setOnClickListener(this);
