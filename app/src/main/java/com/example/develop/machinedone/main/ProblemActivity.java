@@ -52,7 +52,7 @@ public class ProblemActivity extends AppCompatActivity implements View.OnClickLi
         Button addPro = findViewById(R.id.add_pro);
         listView = findViewById(R.id.pro_listView);
         problemAdapter = new ProblemAdapter(this, menuitemBeans);
-        toolbarImg.setImageResource(R.mipmap.ic_launcher);
+        toolbarImg.setImageResource(R.mipmap.title_img);
         toolbarBack.setImageResource(R.mipmap.ic_title_back);
         title.setText("活动问题 ↑");
         username.setText("User");

@@ -50,6 +50,7 @@ public class CreateQuestionActivity extends AppCompatActivity implements View.On
     private TextView question_typeText;
     private TextView priority_levelText;
     boolean x = false;
+    boolean y = false;
     private static final int PHOTO_REQUEST_CAREMA = 1;// 拍照
     private static final int PHOTO_REQUEST_GALLERY = 2;// 从相册中选择
     private static final int PHOTO_REQUEST_CUT = 3;// 结果
@@ -76,7 +77,7 @@ public class CreateQuestionActivity extends AppCompatActivity implements View.On
         linner_question.setOnClickListener(this);
         linner_level = findViewById(R.id.priority_level);
         linner_level.setOnClickListener(this);
-        toolbarImg.setImageResource(R.mipmap.ic_launcher);
+        toolbarImg.setImageResource(R.mipmap.title_img);
         toolbarBack.setImageResource(R.mipmap.ic_title_back);
         username.setText("User");
         toolbarImg.setOnClickListener(this);
@@ -109,12 +110,12 @@ public class CreateQuestionActivity extends AppCompatActivity implements View.On
                 }
                 break;
             case R.id.priority_level:
-                if (x) {
+                if (y) {
                     level_popupWindow.dismiss();
-                    x = false;
+                    y = false;
                 } else {
                     prioritylevel();
-                    x = true;
+                    y = true;
                 }
                 break;
             case R.id.red_defect:
