@@ -18,6 +18,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -60,6 +62,7 @@ public class CreateQuestionActivity extends AppCompatActivity implements View.On
     String[] items = new String[]{
             "拍照上传", "从相册中选择"
     };
+    private List<Bitmap> bimapList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -243,14 +246,16 @@ public class CreateQuestionActivity extends AppCompatActivity implements View.On
             if (hasSdcard()) {
                 crop(Uri.fromFile(tempFile));
             } else {
-                Toast.makeText(CreateQuestionActivity.this, "未找到存储卡，无法存储照片！", 0).show();
+                Toast.makeText(CreateQuestionActivity.this, "未找到存储卡，无法存储照片！", Toast.LENGTH_LONG).show();
             }
 
         } else if (requestCode == PHOTO_REQUEST_CUT) {
             // 从剪切图片返回的数据
             if (data != null) {
                 Bitmap bitmap = data.getParcelableExtra("data");
-                this.iv_image.setImageBitmap(bitmap);
+                bimapList = new ArrayList<>();
+                bimapList.add(bitmap);
+                this.iv_image.setImageBitmap(bimapList.get(0));
             }
             try {
                 // 将临时文件删除

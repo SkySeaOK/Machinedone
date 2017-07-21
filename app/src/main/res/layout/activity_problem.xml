@@ -39,11 +39,11 @@
     android:layout_height="wrap_content" />
 </LinearLayout>
     <TextView
-        android:layout_marginBottom="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
         android:textColor="#303F9F"
-        android:text="Test"
+        android:text="@string/title_mini"
         android:id="@+id/title_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />

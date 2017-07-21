@@ -1,5 +1,6 @@
 package com.example.develop.machinedone.main;
 
+import android.content.Intent;
 import android.graphics.drawable.BitmapDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -7,6 +8,7 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -47,12 +49,14 @@ public class ProblemActivity extends AppCompatActivity implements View.OnClickLi
         TextView username = findViewById(R.id.toolbar_username);
         ImageView toolbarImg = findViewById(R.id.toolbar_img);
         ImageView toolbarBack = findViewById(R.id.toolbar_back);
+        Button addPro = findViewById(R.id.add_pro);
         listView = findViewById(R.id.pro_listView);
         problemAdapter = new ProblemAdapter(this, menuitemBeans);
         toolbarImg.setImageResource(R.mipmap.ic_launcher);
         toolbarBack.setImageResource(R.mipmap.ic_title_back);
         title.setText("活动问题 ↑");
         username.setText("User");
+        addPro.setOnClickListener(this);
         toolbarBack.setOnClickListener(this);
         title.setOnClickListener(this);
         Retrofit retrofit = new Retrofit.Builder().baseUrl(url).addConverterFactory(GsonConverterFactory.create()).build();
@@ -91,6 +95,10 @@ public class ProblemActivity extends AppCompatActivity implements View.OnClickLi
                 break;
             case R.id.toolbar_back:
                 finish();
+                break;
+            case R.id.add_pro:
+             startActivity( new Intent(this,CreateQuestionActivity.class));
+
                 break;
         }
     }

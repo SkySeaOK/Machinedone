@@ -5,6 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F4F4F4"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
     tools:context="com.example.develop.machinedone.main.MainProjectActivity"
     android:orientation="vertical">
 
@@ -111,6 +113,7 @@
     </LinearLayout>
 
     <android.support.v7.widget.SearchView
+
         android:id="@+id/searchView"
         android:layout_margin="8dp"
         app:iconifiedByDefault="false"

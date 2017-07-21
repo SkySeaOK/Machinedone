@@ -19,4 +19,5 @@
     <string name="project_sort"><![CDATA[排序<>]]></string>
     <string name="project_screen">筛选</string>
     <string name="add_problem">+ 添加问题</string>
+    <string name="title_mini">标题</string>
 </resources>

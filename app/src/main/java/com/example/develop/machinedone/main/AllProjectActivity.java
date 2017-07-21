@@ -51,8 +51,6 @@ public class AllProjectActivity extends AppCompatActivity implements View.OnClic
                 Intent intent = new Intent(AllProjectActivity.this, MainProjectActivity.class);
                 intent.putExtra("position",i);
                 startActivity(intent);
-
-
             }
         });
         Button btn = findViewById(R.id.addlist);
@@ -63,8 +61,6 @@ public class AllProjectActivity extends AppCompatActivity implements View.OnClic
         toolbarImg.setOnClickListener(this);
         TextView toolbarTitle = findViewById(R.id.title_toolbar);
         toolbarTitle.setText(R.string.toolbar_title);
-
-
         Retrofit retrofit = new Retrofit.Builder().baseUrl(url).addConverterFactory(GsonConverterFactory.create()).build();
         ApiService apiService = retrofit.create(ApiService.class);
         final Call<MainList> list = apiService.getList();
