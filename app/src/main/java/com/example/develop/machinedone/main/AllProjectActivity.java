@@ -56,7 +56,7 @@ public class AllProjectActivity extends AppCompatActivity implements View.OnClic
             }
         });
         Button btn = findViewById(R.id.addlist);
-        toolbarImg.setImageResource(R.mipmap.ic_launcher);
+        toolbarImg.setImageResource(R.mipmap.title_img);
         toolbarImg1.setImageResource(R.mipmap.ic_thok1);
         username.setText("User");
         btn.setOnClickListener(this);

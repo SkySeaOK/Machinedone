@@ -9,220 +9,256 @@
 
     <include
         android:id="@+id/title_toolbar1"
-        layout="@layout/title"/>
+        layout="@layout/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="15dp"
-        android:background="#F4F4F4"
-        android:layout_below="@+id/title_toolbar1"
-        android:orientation="vertical">
+        android:layout_below="@+id/title_toolbar1">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#fff"
-            android:padding="5dp"
-            android:orientation="horizontal"
-            android:layout_marginBottom="1dp">
+            android:layout_height="match_parent"
+            android:layout_marginTop="15dp"
+            android:background="#F4F4F4"
+            android:orientation="vertical">
 
-            <TextView
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_gravity="center"
-                android:gravity="end"
-                android:paddingRight="15dp"
-                android:text="模块"
-                android:textColor="#000"
-                android:layout_height="wrap_content" />
-
-            <TextView
-                android:layout_weight="3"
-                android:layout_width="0dp"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="#000"
-                android:text="未选择"
-                android:layout_gravity="center"
-                android:gravity="start"
-                />
+                android:layout_marginBottom="1dp"
+                android:background="#fff"
+                android:orientation="horizontal"
+                android:padding="5dp">
 
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@mipmap/ic_right"/>
-        </LinearLayout>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    android:paddingRight="15dp"
+                    android:text="模块"
+                    android:textColor="#000" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#fff"
-            android:padding="5dp"
-            android:orientation="horizontal"
-            android:layout_marginBottom="1dp">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="3"
+                    android:gravity="start"
+                    android:text="未选择"
+                    android:textColor="#000" />
 
-            <TextView
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_gravity="center"
-                android:gravity="end"
-                android:paddingRight="15dp"
-                android:text="处理人"
-                android:textColor="#000"
-                android:layout_height="wrap_content" />
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@mipmap/ic_right" />
+            </LinearLayout>
 
-            <TextView
-                android:layout_weight="3"
-                android:layout_width="0dp"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="#000"
-                android:text="未选择"
-                android:layout_gravity="center"
-                android:gravity="start"
-                />
+                android:layout_marginBottom="1dp"
+                android:background="#fff"
+                android:orientation="horizontal"
+                android:padding="5dp">
 
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@mipmap/ic_right"/>
-        </LinearLayout>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    android:paddingRight="15dp"
+                    android:text="处理人"
+                    android:textColor="#000" />
 
-        <LinearLayout
-            android:id="@+id/question_type"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#fff"
-            android:padding="5dp"
-            android:orientation="horizontal"
-            android:layout_marginBottom="1dp">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="3"
+                    android:gravity="start"
+                    android:text="未选择"
+                    android:textColor="#000" />
 
-            <TextView
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_gravity="center"
-                android:gravity="end"
-                android:paddingRight="15dp"
-                android:text="问题类型"
-                android:textColor="#000"
-                android:layout_height="wrap_content" />
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@mipmap/ic_right" />
+            </LinearLayout>
 
-            <TextView
-                android:id="@+id/question_color"
-                android:layout_gravity="center"
-                android:layout_width="10dp"
-                android:layout_height="10dp"
-                android:layout_marginRight="5dp"/>
-
-            <TextView
-                android:id="@+id/question_typeText"
-                android:layout_weight="3"
-                android:layout_width="0dp"
+            <LinearLayout
+                android:id="@+id/question_type"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="#000"
-                android:layout_gravity="center"
-                android:gravity="start"
-                />
+                android:layout_marginBottom="1dp"
+                android:background="#fff"
+                android:orientation="horizontal"
+                android:padding="5dp">
 
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@mipmap/ic_right"/>
-        </LinearLayout>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    android:paddingRight="15dp"
+                    android:text="问题类型"
+                    android:textColor="#000" />
 
-        <LinearLayout
-            android:id="@+id/priority_level"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#fff"
-            android:padding="5dp"
-            android:orientation="horizontal"
-            android:layout_marginBottom="1dp">
+                <TextView
+                    android:id="@+id/question_color"
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="5dp" />
 
-            <TextView
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_gravity="center"
-                android:gravity="end"
-                android:paddingRight="15dp"
-                android:text="优先级"
-                android:textColor="#000"
-                android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/question_typeText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="3"
+                    android:gravity="start"
+                    android:textColor="#000" />
 
-            <TextView
-                android:id="@+id/level_color"
-                android:layout_gravity="center"
-                android:layout_width="10dp"
-                android:layout_height="10dp"
-                android:layout_marginRight="5dp"/>
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@mipmap/ic_right" />
+            </LinearLayout>
 
-            <TextView
-                android:id="@+id/priority_levelText"
-                android:layout_weight="3"
-                android:layout_width="0dp"
+            <LinearLayout
+                android:id="@+id/priority_level"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="#000"
+                android:layout_marginBottom="1dp"
+                android:background="#fff"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    android:paddingRight="15dp"
+                    android:text="优先级"
+                    android:textColor="#000" />
+
+                <TextView
+                    android:id="@+id/level_color"
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="5dp" />
+
+                <TextView
+                    android:id="@+id/priority_levelText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="3"
+                    android:gravity="start"
+                    android:textColor="#000" />
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@mipmap/ic_right" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/project_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="#fff"
+                android:padding="10dp"
+                android:text="标题"
+                android:textColor="#000" />
+
+            <EditText
+                android:id="@+id/edit_project"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginBottom="1dp"
+                android:background="#fff"
+                android:gravity="top|left"
+                android:hint="最多100个字符"
+                android:maxLines="5"
+                android:paddingLeft="10dp" />
+
+            <TextView
+                android:id="@+id/project_describe"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:padding="10dp"
+                android:text="描述"
+                android:textColor="#000" />
+
+            <EditText
+                android:id="@+id/edit_describe"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="#fff"
+                android:gravity="top|left"
+                android:hint="请输入问题的详细描述"
+                android:maxLines="5"
+                android:paddingLeft="10dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/project_img"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#fff"
+                    android:padding="10dp"
+                    android:text="图片"
+                    android:textColor="#000" />
+
+                <ImageView
+                    android:id="@+id/iv_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_gravity="center"
+                    android:foregroundGravity="center"
+                    android:src="@mipmap/ic_photo"
+                    android:background="#F4F4F4"/>
+
+                <Button
+                    android:id="@+id/choose_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:gravity="center"
+                    android:text="选择" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/submit_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:gravity="start"
-                />
-
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@mipmap/ic_right"/>
+                android:gravity="center"
+                android:background="#56B5D3"
+                android:text="@string/create_project" />
         </LinearLayout>
-
-        <TextView
-            android:id="@+id/project_name"
-            android:text="@string/project_title"
-            android:layout_marginTop="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#fff"
-            android:textColor="#000"
-            android:padding="10dp" />
-
-        <EditText
-            android:id="@+id/edit_project"
-            android:layout_marginBottom="1dp"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:maxLines="5"
-            android:hint="@string/write_projectName"
-            android:gravity="top|left"
-            android:background="#fff"
-            android:paddingLeft="10dp"/>
-
-        <TextView
-            android:id="@+id/project_describe"
-            android:text="@string/project_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#fff"
-            android:textColor="#000"
-            android:padding="10dp"/>
-
-        <EditText
-            android:id="@+id/edit_describe"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:hint="@string/write_projectDescribe"
-            android:gravity="top|left"
-            android:maxLines="5"
-            android:background="#fff"
-            android:paddingLeft="10dp"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:background="#F4F4F4"/>
-
-        <Button
-            android:id="@+id/submit_btn"
-            android:layout_gravity="end"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/create_project"
-            android:background="#56B5D3"/>
-    </LinearLayout>
+    </ScrollView>
 </RelativeLayout>

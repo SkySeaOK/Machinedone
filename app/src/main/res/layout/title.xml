@@ -4,12 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:id="@+id/toolbar_linnear"
+    android:padding="5dp"
     android:background="#fff">
 
         <ImageView
             android:id="@+id/toolbar_back"
+            android:layout_centerInParent="true"
             android:layout_gravity="start"
-            android:layout_width="wrap_content"
+            android:layout_width="45dp"
             android:layout_height="45dp" />
         <TextView
             android:id="@+id/title_toolbar"
@@ -24,8 +26,8 @@
         <ImageView
             android:id="@+id/toolbar_img"
             android:layout_centerInParent="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_width="45dp"
+            android:layout_height="45dp" />
         <TextView
             android:id="@+id/toolbar_username"
             android:layout_centerInParent="true"
