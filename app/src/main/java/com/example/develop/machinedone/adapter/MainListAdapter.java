@@ -28,15 +28,8 @@ public class MainListAdapter extends BaseAdapter
 
     public MainListAdapter(Context context,List<MainList.MenuitemBean> mainlist)//预留传参
     {
-
-
         this.mainlist=mainlist;
-
         view=context;
-
-
-
-
     }
     @Override
     public int getCount() {

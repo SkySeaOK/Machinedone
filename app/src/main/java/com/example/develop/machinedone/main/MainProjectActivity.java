@@ -47,7 +47,7 @@ public class MainProjectActivity extends AppCompatActivity implements View.OnCli
         ImageView toolbarBack = findViewById(R.id.toolbar_back);
         projectNum = findViewById(R.id.project_num);
         Button createQuestion = findViewById(R.id.create_btn);
-        toolbarImg.setImageResource(R.mipmap.ic_launcher);
+        toolbarImg.setImageResource(R.mipmap.title_img);
         toolbarBack.setImageResource(R.mipmap.ic_title_back);
         TextView activeProblem = findViewById(R.id.active_problem);
         sv = findViewById(R.id.searchView);

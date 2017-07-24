@@ -23,7 +23,7 @@ public class CreateProjectActivity extends AppCompatActivity implements View.OnC
         ImageView toolbarBack = findViewById(R.id.toolbar_back);
         TextView username = findViewById(R.id.toolbar_username);
         Button creatBtn = findViewById(R.id.create_btn);
-        toolbarImg.setImageResource(R.mipmap.ic_launcher);
+        toolbarImg.setImageResource(R.mipmap.title_img);
         toolbarBack.setImageResource(R.mipmap.ic_title_back);
         username.setText("User");
        // setSupportActionBar(toolbar);

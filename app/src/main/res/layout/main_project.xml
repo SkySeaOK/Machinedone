@@ -7,165 +7,171 @@
     android:background="#F4F4F4"
     android:focusable="true"
     android:focusableInTouchMode="true"
-    tools:context="com.example.develop.machinedone.main.MainProjectActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context="com.example.develop.machinedone.main.MainProjectActivity">
 
-    <include layout="@layout/title"/>
+    <include layout="@layout/title" />
 
     <LinearLayout
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal"
-        android:background="#fff"
-        android:padding="10dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="#fff"
+        android:orientation="horizontal"
+        android:padding="10dp">
 
         <ImageView
-            android:layout_weight="1"
             android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/ic_launcher"/>
+            android:layout_weight="1"
+            android:src="@mipmap/ic_launcher" />
 
-        <GridLayout
-            android:orientation="vertical"
-            android:layout_weight="2"
+        <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:rowCount="4"
-            android:columnCount="4"
-            >
+            android:layout_weight="2"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/project_title"
-                android:layout_row="0"
-                android:layout_column="0"
-                android:layout_columnSpan="2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="fill"
                 android:text="Test"
-                android:textColor="#000"
-                android:layout_gravity="fill"/>
+                android:textColor="#000" />
 
             <TextView
                 android:id="@+id/project_user"
-                android:layout_row="1"
-                android:layout_column="0"
-                android:layout_columnSpan="2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="fill"
                 android:text="Jason 创建"
-                android:textColor="#000"
-                android:layout_gravity="fill"/>
+                android:textColor="#000" />
 
-            <TextView
-                android:layout_row="2"
-                android:layout_column="0"
-                android:text="问题总数:"
-                android:layout_columnWeight="1"
-                android:layout_gravity="fill"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-            <TextView
-                android:layout_row="2"
-                android:layout_column="1"
-                android:text="0"
-                android:layout_columnWeight="1"
-                android:layout_gravity="fill"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="fill"
+                    android:layout_weight="1"
+                    android:text="问题总数:" />
 
-            <TextView
-                android:layout_row="2"
-                android:layout_column="2"
-                android:text="已解决:"
-                android:layout_columnWeight="1"
-                android:layout_gravity="fill"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="fill"
+                    android:layout_weight="1"
+                    android:text="0" />
 
-            <TextView
-                android:layout_row="2"
-                android:layout_column="3"
-                android:text="0"
-                android:layout_columnWeight="1"
-                android:layout_gravity="fill"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="fill"
+                    android:layout_weight="1"
+                    android:text="已解决:" />
 
-            <TextView
-                android:layout_row="3"
-                android:layout_column="0"
-                android:text="未解决:"
-                android:layout_columnWeight="1"
-                android:layout_gravity="fill"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="fill"
+                    android:layout_weight="1"
+                    android:text="0" />
+            </LinearLayout>
 
-            <TextView
-                android:layout_row="3"
-                android:layout_column="1"
-                android:text="0"
-                android:layout_columnWeight="1"
-                android:layout_gravity="fill"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-            <TextView
-                android:layout_row="3"
-                android:layout_column="2"
-                android:text="待审核:"
-                android:layout_columnWeight="1"
-                android:layout_gravity="fill"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="fill"
+                    android:layout_weight="1"
+                    android:text="未解决:" />
 
-            <TextView
-                android:layout_row="3"
-                android:layout_column="3"
-                android:text="0"
-                android:layout_columnWeight="1"
-                android:layout_gravity="fill"/>
-        </GridLayout>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="fill"
+                    android:layout_weight="1"
+                    android:text="0" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="fill"
+                    android:layout_weight="1"
+                    android:text="待审核:" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="fill"
+                    android:layout_weight="1"
+                    android:text="0" />
+            </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
 
     <android.support.v7.widget.SearchView
 
         android:id="@+id/searchView"
-        android:layout_margin="8dp"
-        app:iconifiedByDefault="false"
-        android:background="@drawable/conner_bg"
-        app:queryHint="根据编号、标题、模块搜索"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
-    <LinearLayout
-        android:paddingLeft="5dp"
-        android:paddingRight="20dp"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
-        android:background="#fff"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="1dp">
+        android:layout_margin="8dp"
+        android:background="@drawable/conner_bg"
+        app:iconifiedByDefault="false"
+        app:queryHint="根据编号、标题、模块搜索" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="1dp"
+        android:background="#fff"
+        android:paddingBottom="5dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="20dp"
+        android:paddingTop="5dp">
 
         <ImageView
-            android:layout_height="30dp"
             android:layout_width="30dp"
-            android:src="@mipmap/ic_help"/>
+            android:layout_height="30dp"
+            android:src="@mipmap/ic_help" />
 
         <TextView
             android:id="@+id/active_problem"
-            android:layout_weight="1"
-            android:layout_gravity="center_vertical"
-            android:text="活动问题"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_width="0dp" />
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:text="活动问题" />
 
         <TextView
             android:id="@+id/project_num"
-            android:layout_height="20dp"
             android:layout_width="20dp"
+            android:layout_height="20dp"
             android:layout_gravity="center"
+            android:background="@drawable/bluecircle_bg"
             android:gravity="center"
             android:text="num"
-            android:textColor="#fff"
-            android:background="@drawable/bluecircle_bg"
-            />
+            android:textColor="#fff" />
     </LinearLayout>
 
     <LinearLayout
-        android:paddingLeft="5dp"
-        android:paddingRight="20dp"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
-        android:background="#fff"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="1dp">
+        android:layout_marginBottom="1dp"
+        android:background="#fff"
+        android:paddingBottom="5dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="20dp"
+        android:paddingTop="5dp">
 
         <ImageView
             android:layout_width="30dp"
@@ -173,59 +179,58 @@
             android:src="@mipmap/ic_apps" />
 
         <TextView
-            android:layout_weight="1"
-            android:layout_gravity="center_vertical"
-            android:text="所有问题"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_width="0dp" />
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:text="所有问题" />
 
     </LinearLayout>
 
     <LinearLayout
-        android:paddingLeft="5dp"
-        android:paddingRight="20dp"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
-        android:background="#fff"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="1dp">
+        android:layout_marginBottom="1dp"
+        android:background="#fff"
+        android:paddingBottom="5dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="20dp"
+        android:paddingTop="5dp">
 
         <ImageView
-            android:layout_height="30dp"
             android:layout_width="30dp"
-            android:src="@mipmap/ic_assignment"/>
+            android:layout_height="30dp"
+            android:src="@mipmap/ic_assignment" />
 
         <TextView
-            android:layout_weight="1"
-            android:layout_gravity="center_vertical"
-            android:text="我的待办"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_width="0dp" />
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:text="我的待办" />
 
         <TextView
-            android:layout_height="20dp"
             android:layout_width="20dp"
+            android:layout_height="20dp"
             android:layout_gravity="center"
+            android:background="@drawable/orangecircle_bg"
             android:gravity="center"
             android:text="0"
-            android:textColor="#fff"
-            android:background="@drawable/orangecircle_bg"
-            />
+            android:textColor="#fff" />
     </LinearLayout>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:background="#F4F4F4"/>
+        android:background="#F4F4F4" />
 
     <Button
         android:id="@+id/create_btn"
-        android:layout_gravity="end"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/create_question"
-        android:background="#56B5D3"/>
+        android:layout_gravity="end"
+        android:background="#56B5D3"
+        android:text="@string/create_question" />
 
 </LinearLayout>
