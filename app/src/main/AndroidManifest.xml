@@ -38,7 +38,10 @@
         <activity
             android:name=".main.ProblemActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".main.ProblemDetailActivity"></activity>
+        <activity android:name=".main.ProblemDetailActivity"/>
+
+        <activity android:name="com.linchaolong.android.imagepicker.cropper.CropImageActivity"
+            android:theme="@style/Base.Theme.AppCompat"/>
     </application>
 
 </manifest>

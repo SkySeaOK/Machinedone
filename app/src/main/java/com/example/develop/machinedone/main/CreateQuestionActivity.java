@@ -1,34 +1,38 @@
 package com.example.develop.machinedone.main;
 
-import android.content.DialogInterface;
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Gravity;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import android.graphics.Bitmap;
 import android.net.Uri;
-import android.os.Environment;
-import android.provider.MediaStore;
-import android.widget.ImageView;
-import android.widget.Toast;
-
 import com.example.develop.machinedone.R;
+
+import android.widget.AdapterView;
+import android.widget.GridView;
+
+import com.example.develop.machinedone.adapter.GvAdapter;
+import com.linchaolong.android.imagepicker.ImagePicker;
+import com.linchaolong.android.imagepicker.cropper.CropImage;
+import com.linchaolong.android.imagepicker.cropper.CropImageView;
+
+import static android.provider.MediaStore.Files.FileColumns.PARENT;
+
 
 public class CreateQuestionActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -44,7 +48,6 @@ public class CreateQuestionActivity extends AppCompatActivity implements View.On
     private LinearLayout orange_higher;
     private LinearLayout blue_medium;
     private LinearLayout green_low;
-    private Button choose_btn;
     private TextView question_color;
     private TextView level_color;
     private TextView question_typeText;
@@ -55,16 +58,13 @@ public class CreateQuestionActivity extends AppCompatActivity implements View.On
     private static final int PHOTO_REQUEST_GALLERY = 2;// 从相册中选择
     private static final int PHOTO_REQUEST_CUT = 3;// 结果
 
-    private ImageView iv_image;
+    private GridView gridView;
+    private GvAdapter adapter;
+    private List<String> list;
+    ImagePicker imagePicker ;
+    String path;
 
-    /* 头像名称 */
-    private static final String PHOTO_FILE_NAME = "temp_photo.jpg";
-    private File tempFile;
-    String[] items = new String[]{
-            "拍照上传", "从相册中选择"
-    };
-    private List<Bitmap> bimapList;
-
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -88,9 +88,86 @@ public class CreateQuestionActivity extends AppCompatActivity implements View.On
         level_color = findViewById(R.id.level_color);
         question_typeText = findViewById(R.id.question_typeText);
         priority_levelText = findViewById(R.id.priority_levelText);
-        choose_btn = findViewById(R.id.choose_btn);
-        choose_btn.setOnClickListener(this);
-        this.iv_image = (ImageView) this.findViewById(R.id.iv_image);
+        gridView = (GridView) findViewById(R.id.grid_view);
+        initView();
+    }
+
+    private void initView() {
+        imagePicker = new ImagePicker();
+        // 设置标题
+        imagePicker.setTitle("设置头像");
+        // 设置是否裁剪图片
+        imagePicker.setCropImage(true);
+        list = new ArrayList<>();
+        adapter = new GvAdapter(this, list);
+        gridView.setAdapter(adapter);
+        gridView.setOnItemClickListener(new AdapterView
+                .OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View
+                    view, int position, long id) {
+                //判断是否是最后一个。
+                if (position==parent.getChildCount()-1){
+                    if (position==6){//不能点击了
+                    }else{
+                        openPhoto();
+                    }
+                }else{//可以加点预览功能。
+
+                }
+            }
+        });
+    }
+    public void openPhoto() {
+        // 启动图片选择器
+        imagePicker.startChooser(this, new ImagePicker.Callback() {
+            // 选择图片回调
+            @Override
+            public void onPickImage(Uri imageUri) {
+            }
+            // 裁剪图片回调
+            @Override
+            public void onCropImage(Uri imageUri) {
+                if (list.size()>=6){
+                    Toast.makeText(CreateQuestionActivity.this,"最多选择六张图片",Toast.LENGTH_LONG).show();
+                }else{
+                    list.add(String.valueOf(imageUri));
+                }
+                adapter.notifyDataSetChanged();
+//                path= String.valueOf(imageUri);
+            }
+
+            // 自定义裁剪配置
+            @Override
+            public void cropConfig(CropImage.ActivityBuilder
+                                           builder) {
+                builder
+                        // 是否启动多点触摸
+                        .setMultiTouchEnabled(false)
+                        // 设置网格显示模式
+                        .setGuidelines(CropImageView.Guidelines.OFF)
+                        // 圆形/矩形
+                        .setCropShape(CropImageView.CropShape
+                                .RECTANGLE)
+                        // 调整裁剪后的图片最终大小
+                        .setRequestedSize(720, 960)
+                        // 宽高比
+                        .setAspectRatio(12, 16);
+            }
+            // 用户拒绝授权回调
+            @Override
+            public void onPermissionDenied(int requestCode,
+                                           String[] permissions,
+                                           int[] grantResults) {
+            }
+        });
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int
+            resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        imagePicker.onActivityResult(CreateQuestionActivity.this,requestCode, resultCode, data);
+
     }
 
     @Override
@@ -158,129 +235,7 @@ public class CreateQuestionActivity extends AppCompatActivity implements View.On
                 level_color.setBackgroundColor(Color.parseColor("#91FF19"));
                 level_popupWindow.dismiss();
                 break;
-            case R.id.choose_btn:
-                android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(this);
-                builder.setTitle("上传图片");
-                builder.setIcon(R.mipmap.ic_camera);
-                builder.setItems(items, new DialogInterface.OnClickListener() {
-
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        // TODO Auto-generated method stub
-                        if (items[which] == "从相册中选择") {
-                            Intent intent = new Intent(Intent.ACTION_PICK);
-                            intent.setType("image/*");
-                            // 开启一个带有返回值的Activity，请求码为PHOTO_REQUEST_GALLERY
-                            startActivityForResult(intent, PHOTO_REQUEST_GALLERY);
-                        } else if (items[which] == "拍照上传") {
-                            Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
-                            // 判断存储卡是否可以用，可用进行存储
-                            if (hasSdcard()) {
-                                tempFile = new File(Environment.getExternalStorageDirectory(),
-                                        PHOTO_FILE_NAME);
-                                // 从文件中创建uri
-                                Uri uri = Uri.fromFile(tempFile);
-                                intent.putExtra(MediaStore.EXTRA_OUTPUT, uri);
-                            }
-                            // 开启一个带有返回值的Activity，请求码为PHOTO_REQUEST_CAREMA
-                            startActivityForResult(intent, PHOTO_REQUEST_CAREMA);
-                        }
-
-                    }
-
-                });
-                //setPositiveButton(builder);
-                builder = setNegativeButton(builder);
-
-                android.app.AlertDialog simplelistdialog = builder.create();
-                simplelistdialog.show();
         }
-
-    }
-
-    /*
-     * 剪切图片
-     */
-    private void crop(Uri uri) {
-        // 裁剪图片意图
-        Intent intent = new Intent("com.android.camera.action.CROP");
-        intent.setDataAndType(uri, "image/*");
-        intent.putExtra("crop", "true");
-        // 裁剪框的比例，1：1
-        intent.putExtra("aspectX", 1);
-        intent.putExtra("aspectY", 1);
-        // 裁剪后输出图片的尺寸大小
-        intent.putExtra("outputX", 250);
-        intent.putExtra("outputY", 250);
-
-        intent.putExtra("outputFormat", "JPEG");// 图片格式
-        intent.putExtra("noFaceDetection", true);// 取消人脸识别
-        intent.putExtra("return-data", true);
-        // 开启一个带有返回值的Activity，请求码为PHOTO_REQUEST_CUT
-        startActivityForResult(intent, PHOTO_REQUEST_CUT);
-    }
-
-    /*
-     * 判断sdcard是否被挂载
-     */
-    private boolean hasSdcard() {
-        if (Environment.getExternalStorageState().equals(
-                Environment.MEDIA_MOUNTED)) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == PHOTO_REQUEST_GALLERY) {
-            // 从相册返回的数据
-            if (data != null) {
-                // 得到图片的全路径
-                Uri uri = data.getData();
-                crop(uri);
-            }
-
-        } else if (requestCode == PHOTO_REQUEST_CAREMA) {
-            // 从相机返回的数据
-            if (hasSdcard()) {
-                crop(Uri.fromFile(tempFile));
-            } else {
-                Toast.makeText(CreateQuestionActivity.this, "未找到存储卡，无法存储照片！", Toast.LENGTH_LONG).show();
-            }
-
-        } else if (requestCode == PHOTO_REQUEST_CUT) {
-            // 从剪切图片返回的数据
-            if (data != null) {
-                Bitmap bitmap = data.getParcelableExtra("data");
-                bimapList = new ArrayList<>();
-                bimapList.add(bitmap);
-                this.iv_image.setImageBitmap(bimapList.get(0));
-            }
-            try {
-                // 将临时文件删除
-                tempFile.delete();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-
-        }
-
-        super.onActivityResult(requestCode, resultCode, data);
-    }
-
-    private android.app.AlertDialog.Builder setNegativeButton(android.app.AlertDialog.Builder builder) {
-        // TODO Auto-generated method stub
-        return builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
-
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                // TODO Auto-generated method stub
-                Toast.makeText(CreateQuestionActivity.this, "取消", Toast.LENGTH_SHORT).show();
-            }
-
-        });
     }
 
     private void showPopupWindow() {
