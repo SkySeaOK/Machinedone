@@ -5,17 +5,29 @@ package com.example.develop.machinedone.adapter;
  */
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.res.Resources;
 import android.database.DataSetObserver;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.PixelFormat;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Adapter;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.Resource;
 import com.example.develop.machinedone.R;
+import com.example.develop.machinedone.main.CreateQuestionActivity;
+import com.example.develop.machinedone.main.ImageDetail;
 
+import java.io.ByteArrayOutputStream;
 import java.util.List;
 
 /**
@@ -26,6 +38,7 @@ public class GvAdapter extends BaseAdapter{
     private Context context;
     private int mMaxPosition;//
     private List<String> list;
+    private ViewHolder vh=null;
 
     public GvAdapter(Context context, List<String> list) {
         this.context = context;
@@ -50,13 +63,15 @@ public class GvAdapter extends BaseAdapter{
     }
     @Override
     public View getView(final int position, View v, ViewGroup
-            parent) {
-        ViewHolder vh=null;
+            parent)
+    {
+
         if (v==null){
             vh=new ViewHolder();
             v= LayoutInflater.from(context).inflate(R.layout.phone_item,parent,false);
-            vh.img= (ImageView) v.findViewById(R.id.img);
-            vh.demimg= (ImageView) v.findViewById(R.id.delimg);
+            vh.img= v.findViewById(R.id.img);
+            vh.demimg=v.findViewById(R.id.delimg);
+
             v.setTag(vh);
         }else{
             vh= (ViewHolder) v.getTag();
@@ -82,6 +97,7 @@ public class GvAdapter extends BaseAdapter{
                 notifyDataSetChanged();
             }
         });
+
         return v;
     }
 

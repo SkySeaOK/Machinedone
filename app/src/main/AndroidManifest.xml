@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.develop.machinedone">
-
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <!-- 写外部存储权限：保存相片用 -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <!-- 挂载文件系统权限：这个没有也可以 -->
@@ -9,6 +9,7 @@
     <!-- 拍照权限 -->
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.INTERNET" />
+
 
     <application
         android:allowBackup="true"
@@ -38,10 +39,11 @@
         <activity
             android:name=".main.ProblemActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".main.ProblemDetailActivity"/>
-
-        <activity android:name="com.linchaolong.android.imagepicker.cropper.CropImageActivity"
-            android:theme="@style/Base.Theme.AppCompat"/>
+        <activity android:name=".main.ProblemDetailActivity" />
+        <activity
+            android:name="com.linchaolong.android.imagepicker.cropper.CropImageActivity"
+            android:theme="@style/Base.Theme.AppCompat" />
+        <activity android:name=".main.ImageDetail"></activity>
     </application>
 
 </manifest>

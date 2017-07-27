@@ -2,7 +2,11 @@ package com.example.develop.machinedone.main;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.PixelFormat;
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,6 +21,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -63,6 +68,7 @@ public class CreateQuestionActivity extends AppCompatActivity implements View.On
     private List<String> list;
     ImagePicker imagePicker ;
     String path;
+    private ImageView img;
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -72,6 +78,8 @@ public class CreateQuestionActivity extends AppCompatActivity implements View.On
         ImageView toolbarImg = findViewById(R.id.toolbar_img);
         ImageView toolbarBack = findViewById(R.id.toolbar_back);
         TextView username = findViewById(R.id.toolbar_username);
+        View inflate = LayoutInflater.from(this).inflate(R.layout.phone_item, null, false);
+        img = inflate.findViewById(R.id.img);
         View contentView = LayoutInflater.from(CreateQuestionActivity.this).inflate(R.layout.question_type, null);
         linner_question = findViewById(R.id.question_type);
         linner_question.setOnClickListener(this);
@@ -112,9 +120,13 @@ public class CreateQuestionActivity extends AppCompatActivity implements View.On
                     }else{
                         openPhoto();
                     }
-                }else{//可以加点预览功能。
+                }else
+                    {//可以加点预览功能。
+                        Intent intent = new Intent(CreateQuestionActivity.this, ImageDetail.class);
+                        intent.putExtra("key",list.get(position));
+                        startActivity(intent);
+                        }
 
-                }
             }
         });
     }
@@ -271,5 +283,21 @@ public class CreateQuestionActivity extends AppCompatActivity implements View.On
         level_popupWindow.setOutsideTouchable(true);
         level_popupWindow.showAsDropDown(linner_level, 280, 0);
         level_popupWindow.setFocusable(true);
+    }
+    public static Bitmap drawableToBitmap(Drawable drawable) {
+
+        int w = drawable.getIntrinsicWidth();
+        int h = drawable.getIntrinsicHeight();
+        System.out.println("Drawable转Bitmap");
+        Bitmap.Config config =
+                drawable.getOpacity() != PixelFormat.OPAQUE ? Bitmap.Config.ARGB_8888
+                        : Bitmap.Config.RGB_565;
+        Bitmap bitmap = Bitmap.createBitmap(w, h, config);
+        //注意，下面三行代码要用到，否则在View或者SurfaceView里的canvas.drawBitmap会看不到图
+        Canvas canvas = new Canvas(bitmap);
+        drawable.setBounds(0, 0, w, h);
+        drawable.draw(canvas);
+
+        return bitmap;
     }
 }

@@ -31,7 +31,7 @@ public class AllProjectActivity extends AppCompatActivity implements View.OnClic
     List<MainList.MenuitemBean> menuitemBeans=new ArrayList<>();
     private MainListAdapter mainListAdapter;
     private ListView listView;
-    private   String url="http://192.168.1.111:8080/";
+    private   String url="http://192.168.1.110:8080/";
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
