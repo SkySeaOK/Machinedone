@@ -20,4 +20,5 @@
     <string name="project_screen">筛选</string>
     <string name="add_problem">+ 添加问题</string>
     <string name="title_mini">标题</string>
+    <string name="question_detail">问题详情</string>
 </resources>

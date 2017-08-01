@@ -8,6 +8,7 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -20,6 +21,7 @@ import com.example.develop.machinedone.adapter.ProblemAdapter;
 import com.example.develop.machinedone.api.ApiService;
 import com.example.develop.machinedone.bean.MainList;
 import com.example.develop.machinedone.bean.ProblemBean;
+import com.example.develop.machinedone.model.Url;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,7 +39,7 @@ public class ProblemActivity extends AppCompatActivity implements View.OnClickLi
     private PopupWindow mpopupWindow;
     private LinearLayout linner;
     private ListView listView;
-    private   String url="http://192.168.1.110:8080/";
+//    private   String url="http://192.168.1.110:8080/";
     private ProblemAdapter problemAdapter;
 
     @Override
@@ -59,7 +61,14 @@ public class ProblemActivity extends AppCompatActivity implements View.OnClickLi
         addPro.setOnClickListener(this);
         toolbarBack.setOnClickListener(this);
         title.setOnClickListener(this);
-        Retrofit retrofit = new Retrofit.Builder().baseUrl(url).addConverterFactory(GsonConverterFactory.create()).build();
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(ProblemActivity.this,ProblemDetailActivity.class);
+                startActivity(intent);
+            }
+        });
+        Retrofit retrofit = new Retrofit.Builder().baseUrl(Url.url).addConverterFactory(GsonConverterFactory.create()).build();
         ApiService apiService = retrofit.create(ApiService.class);
         final Call<ProblemBean> list = apiService.getList_t();
         list.enqueue(new Callback<ProblemBean>() {
@@ -98,7 +107,6 @@ public class ProblemActivity extends AppCompatActivity implements View.OnClickLi
                 break;
             case R.id.add_pro:
              startActivity( new Intent(this,CreateQuestionActivity.class));
-
                 break;
         }
     }

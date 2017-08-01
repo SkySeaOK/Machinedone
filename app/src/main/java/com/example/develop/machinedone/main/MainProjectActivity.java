@@ -15,6 +15,7 @@ import com.example.develop.machinedone.R;
 import com.example.develop.machinedone.api.ApiService;
 import com.example.develop.machinedone.bean.MainList;
 import com.example.develop.machinedone.bean.ProblemBean;
+import com.example.develop.machinedone.model.Url;
 
 import java.lang.reflect.Field;
 import java.util.List;
@@ -28,7 +29,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class MainProjectActivity extends AppCompatActivity implements View.OnClickListener {
 
     private SearchView sv;
-    private   String url="http://192.168.1.110:8080/";
+//    private   String url="http://192.168.1.110:8080/";
     private int position;
     private TextView projectTitle;
     private TextView projectUser;
@@ -56,7 +57,7 @@ public class MainProjectActivity extends AppCompatActivity implements View.OnCli
         position = intent.getIntExtra("position", 0);
         username.setText("User");
         //通过retrofit获取网络数据，通过传递过来的position去提取对应的数据
-        Retrofit build = new Retrofit.Builder().baseUrl(url).addConverterFactory(GsonConverterFactory.create()).build();
+        Retrofit build = new Retrofit.Builder().baseUrl(Url.url).addConverterFactory(GsonConverterFactory.create()).build();
         ApiService apiService = build.create(ApiService.class);
         Call<MainList> list = apiService.getList();
         list.enqueue(new Callback<MainList>() {

@@ -16,6 +16,7 @@ import com.example.develop.machinedone.R;
 import com.example.develop.machinedone.adapter.MainListAdapter;
 import com.example.develop.machinedone.api.ApiService;
 import com.example.develop.machinedone.bean.MainList;
+import com.example.develop.machinedone.model.Url;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +32,7 @@ public class AllProjectActivity extends AppCompatActivity implements View.OnClic
     List<MainList.MenuitemBean> menuitemBeans=new ArrayList<>();
     private MainListAdapter mainListAdapter;
     private ListView listView;
-    private   String url="http://192.168.1.110:8080/";
+//    private   String url="http://192.168.1.110:8080/";
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -61,7 +62,7 @@ public class AllProjectActivity extends AppCompatActivity implements View.OnClic
         toolbarImg.setOnClickListener(this);
         TextView toolbarTitle = findViewById(R.id.title_toolbar);
         toolbarTitle.setText(R.string.toolbar_title);
-        Retrofit retrofit = new Retrofit.Builder().baseUrl(url).addConverterFactory(GsonConverterFactory.create()).build();
+        Retrofit retrofit = new Retrofit.Builder().baseUrl(Url.url).addConverterFactory(GsonConverterFactory.create()).build();
         ApiService apiService = retrofit.create(ApiService.class);
         final Call<MainList> list = apiService.getList();
         list.enqueue(new Callback<MainList>() {

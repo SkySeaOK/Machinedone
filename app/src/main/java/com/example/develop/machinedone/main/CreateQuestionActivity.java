@@ -103,7 +103,7 @@ public class CreateQuestionActivity extends AppCompatActivity implements View.On
     private void initView() {
         imagePicker = new ImagePicker();
         // 设置标题
-        imagePicker.setTitle("设置头像");
+        imagePicker.setTitle("添加图片");
         // 设置是否裁剪图片
         imagePicker.setCropImage(true);
         list = new ArrayList<>();
@@ -283,21 +283,5 @@ public class CreateQuestionActivity extends AppCompatActivity implements View.On
         level_popupWindow.setOutsideTouchable(true);
         level_popupWindow.showAsDropDown(linner_level, 280, 0);
         level_popupWindow.setFocusable(true);
-    }
-    public static Bitmap drawableToBitmap(Drawable drawable) {
-
-        int w = drawable.getIntrinsicWidth();
-        int h = drawable.getIntrinsicHeight();
-        System.out.println("Drawable转Bitmap");
-        Bitmap.Config config =
-                drawable.getOpacity() != PixelFormat.OPAQUE ? Bitmap.Config.ARGB_8888
-                        : Bitmap.Config.RGB_565;
-        Bitmap bitmap = Bitmap.createBitmap(w, h, config);
-        //注意，下面三行代码要用到，否则在View或者SurfaceView里的canvas.drawBitmap会看不到图
-        Canvas canvas = new Canvas(bitmap);
-        drawable.setBounds(0, 0, w, h);
-        drawable.draw(canvas);
-
-        return bitmap;
     }
 }
