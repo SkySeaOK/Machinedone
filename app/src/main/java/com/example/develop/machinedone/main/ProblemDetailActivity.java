@@ -32,8 +32,6 @@ public class ProblemDetailActivity extends AppCompatActivity implements View.OnC
 
     private TextView logbtn;
     private ListView log_listview;
-    private PopupWindow log_popupWindow;
-    private boolean x = false;
     private List<LogListViewItem.MenuitemBean> menuitemBeans = new ArrayList<>();
     private LogListViewAdapter logListViewAdapter;
 
@@ -50,47 +48,12 @@ public class ProblemDetailActivity extends AppCompatActivity implements View.OnC
         toolbarImg.setOnClickListener(this);
         toolbarImg1.setOnClickListener(this);
         TextView toolbarTitle = findViewById(R.id.title_toolbar);
-        View contentView = LayoutInflater.from(ProblemDetailActivity.this).inflate(R.layout.log_listview, null);
         logbtn = findViewById(R.id.log_btn);
         logbtn.setOnClickListener(this);
         log_listview = findViewById(R.id.log_listview);
         toolbarTitle.setText(R.string.question_detail);
         logListViewAdapter = new LogListViewAdapter(this, menuitemBeans);
-
-
-    }
-
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.toolbar_back:
-                //关闭当前页面
-                finish();
-                break;
-            case R.id.toolbar_img:
-                Toast.makeText(this, "头像点击事件", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.log_btn:
-                if (x) {
-                    log_popupWindow.dismiss();
-                    x = false;
-                } else {
-                    showPopupWindow();
-                    x = true;
-                }
-                break;
-        }
-    }
-
-    private void showPopupWindow() {
-        View contentView = LayoutInflater.from(ProblemDetailActivity.this).inflate(R.layout.log_listview, null);
-        log_popupWindow = new PopupWindow(contentView, 400, 0);
-        log_popupWindow.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
-        log_popupWindow.setOutsideTouchable(true);
-        log_popupWindow.showAsDropDown(logbtn, 0, 0);
-        log_popupWindow.setFocusable(true);
 //添加数据到listview中
-
         Retrofit retrofit = new Retrofit.Builder().baseUrl(Url.url).addConverterFactory(GsonConverterFactory.create()).build();
         ApiService apiService = retrofit.create(ApiService.class);
         final Call<LogListViewItem> list = apiService.getList_three();
@@ -106,5 +69,28 @@ public class ProblemDetailActivity extends AppCompatActivity implements View.OnC
 
             }
         });
+
     }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.toolbar_back:
+                //关闭当前页面
+                finish();
+                break;
+            case R.id.toolbar_img:
+                Toast.makeText(this, "头像点击事件", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.log_btn:
+                if (log_listview.getVisibility() == view.VISIBLE) {
+                    log_listview.setVisibility(view.GONE);
+                } else {
+                    log_listview.setVisibility(view.VISIBLE);
+
+                }
+                break;
+        }
+    }
+
 }
