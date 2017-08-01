@@ -5,6 +5,14 @@
 
     <ListView
         android:id="@+id/log_listview"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:background="#F4F4F4"
+        android:layout_weight="1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"></ListView>
+        android:layout_height="match_parent"
+        android:divider="#F4F4F4"
+        android:dividerHeight="25px"
+        />
 </LinearLayout>

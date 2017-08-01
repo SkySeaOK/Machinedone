@@ -1,5 +1,6 @@
 package com.example.develop.machinedone.api;
 
+import com.example.develop.machinedone.bean.LogListViewItem;
 import com.example.develop.machinedone.bean.MainList;
 import com.example.develop.machinedone.bean.ProblemBean;
 
@@ -14,9 +15,10 @@ public interface ApiService
 {
     //测试listview接口
     @GET("json.txt")
-    Call<MainList>getList();
+    Call<MainList> getList();
     //测试listview接口
     @GET("json_two.txt")
     Call<ProblemBean>getList_t();
-
+    @GET("json_three.txt")
+    Call<LogListViewItem>getList_three();
 }

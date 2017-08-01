@@ -13,13 +13,30 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.develop.machinedone.R;
+import com.example.develop.machinedone.adapter.LogListViewAdapter;
+import com.example.develop.machinedone.api.ApiService;
+import com.example.develop.machinedone.bean.LogListViewItem;
+import com.example.develop.machinedone.bean.ProblemBean;
+import com.example.develop.machinedone.model.Url;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ProblemDetailActivity extends AppCompatActivity implements View.OnClickListener {
 
-    TextView logbtn;
-    ListView log_listview;
+    private TextView logbtn;
+    private ListView log_listview;
     private PopupWindow log_popupWindow;
     private boolean x = false;
+    private List<LogListViewItem.MenuitemBean> menuitemBeans = new ArrayList<>();
+    private LogListViewAdapter logListViewAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +55,9 @@ public class ProblemDetailActivity extends AppCompatActivity implements View.OnC
         logbtn.setOnClickListener(this);
         log_listview = findViewById(R.id.log_listview);
         toolbarTitle.setText(R.string.question_detail);
+        logListViewAdapter = new LogListViewAdapter(this, menuitemBeans);
+
+
     }
 
     @Override
@@ -69,6 +89,22 @@ public class ProblemDetailActivity extends AppCompatActivity implements View.OnC
         log_popupWindow.setOutsideTouchable(true);
         log_popupWindow.showAsDropDown(logbtn, 0, 0);
         log_popupWindow.setFocusable(true);
+//添加数据到listview中
 
+        Retrofit retrofit = new Retrofit.Builder().baseUrl(Url.url).addConverterFactory(GsonConverterFactory.create()).build();
+        ApiService apiService = retrofit.create(ApiService.class);
+        final Call<LogListViewItem> list = apiService.getList_three();
+        list.enqueue(new Callback<LogListViewItem>() {
+            @Override
+            public void onResponse(Call<LogListViewItem> call, Response<LogListViewItem> response) {
+                menuitemBeans.addAll(response.body().getMenuitem());
+                log_listview.setAdapter(logListViewAdapter);
+            }
+
+            @Override
+            public void onFailure(Call<LogListViewItem> call, Throwable t) {
+
+            }
+        });
     }
 }
