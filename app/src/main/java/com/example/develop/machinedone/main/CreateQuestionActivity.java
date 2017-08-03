@@ -10,6 +10,7 @@ import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -194,7 +195,7 @@ public class CreateQuestionActivity extends AppCompatActivity implements View.On
                     question_popupWindow.dismiss();
                     x = false;
                 } else {
-                    showPopupWindow();
+                    showPopupWindow(view);
                     x = true;
                 }
                 break;
@@ -250,7 +251,7 @@ public class CreateQuestionActivity extends AppCompatActivity implements View.On
         }
     }
 
-    private void showPopupWindow() {
+    private void showPopupWindow(View v) {
         View contentView = LayoutInflater.from(CreateQuestionActivity.this).inflate(R.layout.question_type, null);
         red_defect = contentView.findViewById(R.id.red_defect);
         orange_improve = contentView.findViewById(R.id.orange_improve);
@@ -260,6 +261,8 @@ public class CreateQuestionActivity extends AppCompatActivity implements View.On
         orange_improve.setOnClickListener(this);
         blue_task.setOnClickListener(this);
         green_demand.setOnClickListener(this);
+        int[] location = new int[2];
+        linner_question.getLocationOnScreen(location);
         question_popupWindow = new PopupWindow(contentView, 400, 0);
         question_popupWindow.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
         question_popupWindow.setOutsideTouchable(true);
