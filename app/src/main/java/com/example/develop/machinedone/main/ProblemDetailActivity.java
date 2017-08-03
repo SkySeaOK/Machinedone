@@ -143,6 +143,7 @@ public class ProblemDetailActivity extends AppCompatActivity implements View.OnC
             }
         });
         operate_popupWindow.setAnimationStyle(R.style.AnimationFade);
+        operate_popupWindow.update();
 
         Button operate_btn = contentView.findViewById(R.id.operate_btn);
         operate_btn.setOnClickListener(this);
