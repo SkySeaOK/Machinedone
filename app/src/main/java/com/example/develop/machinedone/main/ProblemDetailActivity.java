@@ -103,18 +103,10 @@ public class ProblemDetailActivity extends AppCompatActivity implements View.OnC
                 }
                 break;
             case R.id.operate_button:
-                if (x) {
                     showPopupWindow();
-                    x = false;
-                    operate_button.setEnabled(false);
-                }
                 break;
             case R.id.operate_btn:
-                if (x == false) {
                     operate_popupWindow.dismiss();
-                    x = true;
-                    operate_button.setEnabled(true);
-                }
                 break;
         }
     }
@@ -122,7 +114,6 @@ public class ProblemDetailActivity extends AppCompatActivity implements View.OnC
     private void showPopupWindow() {
         View contentView = LayoutInflater.from(ProblemDetailActivity.this).inflate(R.layout.operate_list, null);
         contentView.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
-        //int popupWidth = contentView.getMeasuredWidth();
         int popupHeight = contentView.getMeasuredHeight();
 //这里就可自定义在上方和下方了 ，这种方式是为了确定在某个位置，某个控件的左边，右边，上边，下边都可以
         operate_popupWindow = new PopupWindow(contentView, 0, 0);
@@ -151,7 +142,7 @@ public class ProblemDetailActivity extends AppCompatActivity implements View.OnC
                 ProblemDetailActivity.this.getWindow().setAttributes(params);
             }
         });
-        //operate_popupWindow.setAnimationStyle(R.style.AnimationFade);
+        operate_popupWindow.setAnimationStyle(R.style.AnimationFade);
 
         Button operate_btn = contentView.findViewById(R.id.operate_btn);
         operate_btn.setOnClickListener(this);
