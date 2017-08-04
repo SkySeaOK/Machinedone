@@ -1,6 +1,5 @@
 package com.example.develop.machinedone.main;
 
-import android.content.Intent;
 import android.graphics.drawable.BitmapDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -21,7 +20,6 @@ import com.example.develop.machinedone.R;
 import com.example.develop.machinedone.adapter.LogListViewAdapter;
 import com.example.develop.machinedone.api.ApiService;
 import com.example.develop.machinedone.bean.LogListViewItem;
-import com.example.develop.machinedone.bean.ProblemBean;
 import com.example.develop.machinedone.model.Url;
 
 import java.util.ArrayList;
@@ -33,17 +31,27 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-import static android.app.PendingIntent.getActivity;
-
 public class ProblemDetailActivity extends AppCompatActivity implements View.OnClickListener {
 
     private PopupWindow operate_popupWindow;
+    private PopupWindow assign_popupWindow;
+    private PopupWindow handle_popupWindow;
     private Button operate_button;
+    private Button operate_btn;
     private TextView logbtn;
-    private boolean x = true;
+    private boolean x = false;
     private ListView log_listview;
     private List<LogListViewItem.MenuitemBean> menuitemBeans = new ArrayList<>();
     private LogListViewAdapter logListViewAdapter;
+    private LinearLayout assign_liner;
+    private LinearLayout delay_liner;
+    private LinearLayout delete_liner;
+    private LinearLayout operateList_liner;
+    private LinearLayout handle_liner;
+    private ImageView delete_img;
+    private LinearLayout handle_user;
+    private TextView handleUser_text;
+    private TextView user_text;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,15 +111,42 @@ public class ProblemDetailActivity extends AppCompatActivity implements View.OnC
                 }
                 break;
             case R.id.operate_button:
-                    showPopupWindow();
+                showOperatePopupWindow();
                 break;
             case R.id.operate_btn:
-                    operate_popupWindow.dismiss();
+                operate_popupWindow.dismiss();
+                break;
+            case R.id.assign_btn:
+                showAssignPopupWindow();
+                assign_liner.setBackgroundColor(0xFFBDBDBD);
+                delay_liner.setBackgroundColor(0xFFBDBDBD);
+                delete_liner.setBackgroundColor(0xFFBDBDBD);
+                operate_btn.setBackgroundColor(0xFFBDBDBD);
+                operateList_liner.setBackgroundColor(0xFFBBBBBB);
+                break;
+            case R.id.delete_img:
+                assign_popupWindow.dismiss();
+                break;
+            case R.id.handle_liner:
+                if(x)
+                {
+                    handle_popupWindow.dismiss();
+                    x = false;
+                }
+                else
+                {
+                    showHandlePopupWindow();
+                    x = true;
+                }
+                break;
+            case R.id.handle_user:
+                handleUser_text.setText(user_text.getText());
+                handle_popupWindow.dismiss();
                 break;
         }
     }
 
-    private void showPopupWindow() {
+    private void showOperatePopupWindow() {
         View contentView = LayoutInflater.from(ProblemDetailActivity.this).inflate(R.layout.operate_list, null);
         contentView.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
         int popupHeight = contentView.getMeasuredHeight();
@@ -129,7 +164,7 @@ public class ProblemDetailActivity extends AppCompatActivity implements View.OnC
         WindowManager windowManager = ProblemDetailActivity.this.getWindowManager();
         WindowManager.LayoutParams params = ProblemDetailActivity.this.getWindow().getAttributes();
         //当弹出Popupwindow时，背景变半透明
-        params.alpha=0.7f;
+        params.alpha = 0.7f;
         ProblemDetailActivity.this.getWindow().addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
         ProblemDetailActivity.this.getWindow().setAttributes(params);
         //设置Popupwindow关闭监听，当Popupwindow关闭，背景恢复1f
@@ -137,7 +172,7 @@ public class ProblemDetailActivity extends AppCompatActivity implements View.OnC
             @Override
             public void onDismiss() {
                 WindowManager.LayoutParams params = ProblemDetailActivity.this.getWindow().getAttributes();
-                params.alpha=1f;
+                params.alpha = 1f;
                 ProblemDetailActivity.this.getWindow().addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
                 ProblemDetailActivity.this.getWindow().setAttributes(params);
             }
@@ -145,8 +180,64 @@ public class ProblemDetailActivity extends AppCompatActivity implements View.OnC
         operate_popupWindow.setAnimationStyle(R.style.AnimationFade);
         operate_popupWindow.update();
 
-        Button operate_btn = contentView.findViewById(R.id.operate_btn);
+        operate_btn = contentView.findViewById(R.id.operate_btn);
         operate_btn.setOnClickListener(this);
+        TextView assign_btn = contentView.findViewById(R.id.assign_btn);
+        assign_btn.setOnClickListener(this);
+        assign_liner = contentView.findViewById(R.id.assign_liner);
+        delay_liner = contentView.findViewById(R.id.delay_liner);
+        delete_liner = contentView.findViewById(R.id.delete_liner);
+        operateList_liner = contentView.findViewById(R.id.operateList_liner);
+
     }
 
+    private void showAssignPopupWindow() {
+        View contentView = LayoutInflater.from(ProblemDetailActivity.this).inflate(R.layout.assign_page, null);
+        contentView.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
+        assign_popupWindow = new PopupWindow(contentView, 600, 0);
+        assign_popupWindow.setBackgroundDrawable(new BitmapDrawable());//注意这里如果不设置，下面的setOutsideTouchable(true);允许点击外部消失会失效
+        assign_popupWindow.setOutsideTouchable(true);   //设置外部点击关闭ppw窗口
+        assign_popupWindow.setFocusable(true);
+        assign_popupWindow.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
+        assign_popupWindow.showAtLocation(contentView, Gravity.CENTER, 0, 0);
+        WindowManager.LayoutParams params = ProblemDetailActivity.this.getWindow().getAttributes();
+        //当弹出Popupwindow时，背景变半透明
+        params.alpha = 0.5f;
+        ProblemDetailActivity.this.getWindow().addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
+        ProblemDetailActivity.this.getWindow().setAttributes(params);
+        //设置Popupwindow关闭监听，当Popupwindow关闭，背景恢复0.7f
+        assign_popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
+            @Override
+            public void onDismiss() {
+                WindowManager.LayoutParams params = ProblemDetailActivity.this.getWindow().getAttributes();
+                params.alpha = 0.7f;
+                ProblemDetailActivity.this.getWindow().addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
+                ProblemDetailActivity.this.getWindow().setAttributes(params);
+                assign_liner.setBackgroundColor(0xFFffffff);
+                delay_liner.setBackgroundColor(0xFFffffff);
+                delete_liner.setBackgroundColor(0xFFffffff);
+                operate_btn.setBackgroundColor(0xFFffffff);
+                operateList_liner.setBackgroundColor(0xFFF4F4F4);
+            }
+        });
+        assign_popupWindow.setAnimationStyle(R.style.AnimationFade);
+        assign_popupWindow.update();
+        delete_img = contentView.findViewById(R.id.delete_img);
+        handle_liner = contentView.findViewById(R.id.handle_liner);
+        delete_img.setOnClickListener(this);
+        handle_liner.setOnClickListener(this);
+        handleUser_text = contentView.findViewById(R.id.handleUser_text);
+    }
+
+    private void showHandlePopupWindow() {
+        View contentView = LayoutInflater.from(ProblemDetailActivity.this).inflate(R.layout.handle_person, null);
+        handle_popupWindow = new PopupWindow(contentView, 400, 300);
+        handle_popupWindow.setOutsideTouchable(true);
+        handle_popupWindow.showAtLocation(contentView,Gravity.CENTER,50, 20);
+        handle_popupWindow.setFocusable(true);
+        handle_user = contentView.findViewById(R.id.handle_user);
+        handle_user.setOnClickListener(this);
+        user_text = contentView.findViewById(R.id.user_text);
+
+    }
 }
