@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -60,9 +62,10 @@ public class ProblemDetailActivity extends AppCompatActivity implements View.OnC
     private ImageView refuseDelete_img;
     private LinearLayout refuseHandle_liner;
     private TextView refuseHandle_text;
-    private TextView refuse_title;
+    private TextView refuse_text;
     private LinearLayout refuse_reason;
     private View v;
+    private String[] data = {"不是错误","重复问题","延期解决","设计如此","不能重现","不同意建议","忽略"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -330,13 +333,13 @@ public class ProblemDetailActivity extends AppCompatActivity implements View.OnC
         refuseHandle_text = contentView.findViewById(R.id.refuseHandle_text);
         refuse_reason = contentView.findViewById(R.id.refuse_reason);
         refuse_reason.setOnClickListener(this);
+        refuse_text = contentView.findViewById(R.id.refuse_text);
     }
 
     private void showHandlePopupWindow() {
         v = LayoutInflater.from(ProblemDetailActivity.this).inflate(R.layout.handle_person, null);
         handle_popupWindow = new PopupWindow(v, 400, 300);
         handle_popupWindow.setOutsideTouchable(true);
-//        handle_popupWindow.showAtLocation(v,Gravity.CENTER,50, 20);
         handle_popupWindow.setFocusable(true);
         handle_user = v.findViewById(R.id.handle_user);
         handle_user.setOnClickListener(this);
@@ -351,9 +354,18 @@ public class ProblemDetailActivity extends AppCompatActivity implements View.OnC
         refuseReason_popupWindow.setOutsideTouchable(true);
         refuseReason_popupWindow.showAtLocation(contentView,Gravity.CENTER,50, 70);
         refuseReason_popupWindow.setFocusable(true);
-//        handle_user = contentView.findViewById(R.id.handle_user);
-//        handle_user.setOnClickListener(this);
-//        user_text = contentView.findViewById(R.id.user_text);
-
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(
+                ProblemDetailActivity.this,R.layout.refuse_list_item,data
+        );
+        ListView listView = contentView.findViewById(R.id.refuse_listview);
+        listView.setAdapter(adapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                String s = data[i].toString();
+                refuse_text.setText(s);
+                refuseReason_popupWindow.dismiss();
+            }
+        });
     }
 }
