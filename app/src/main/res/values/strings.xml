@@ -23,4 +23,5 @@
     <string name="question_detail">问题详情</string>
     <string name="assign_person">指派新的处理人</string>
     <string name="write_assignDescribe">最多输入200个字符</string>
+    <string name="write_delayDescribe">最多输入2000个字符</string>
 </resources>

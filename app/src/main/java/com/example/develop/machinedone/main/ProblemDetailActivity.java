@@ -1,6 +1,9 @@
 package com.example.develop.machinedone.main;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.drawable.BitmapDrawable;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -40,6 +43,7 @@ public class ProblemDetailActivity extends AppCompatActivity implements View.OnC
     private PopupWindow handle_popupWindow;
     private PopupWindow refuse_popupWindow;
     private PopupWindow refuseReason_popupWindow;
+    private PopupWindow delay_popupWindow;
     private Button operate_button;
     private Button operate_btn;
     private TextView logbtn;
@@ -66,6 +70,8 @@ public class ProblemDetailActivity extends AppCompatActivity implements View.OnC
     private LinearLayout refuse_reason;
     private View v;
     private String[] data = {"不是错误","重复问题","延期解决","设计如此","不能重现","不同意建议","忽略"};
+    private ImageView delayDelete_img;
+    private TextView delay_title;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,6 +112,33 @@ public class ProblemDetailActivity extends AppCompatActivity implements View.OnC
         operate_button = findViewById(R.id.operate_button);
         operate_button.setOnClickListener(this);
     }
+
+        //返回对象是原来的Builder对象
+        private AlertDialog.Builder setPositiveButton(AlertDialog.Builder builder) {
+            // TODO Auto-generated method stub
+            return builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    // TODO Auto-generated method stub
+                }
+
+            });
+        }
+
+        //返回对象是Builder对象
+        private AlertDialog.Builder setNegativeButton(AlertDialog.Builder builder) {
+            // TODO Auto-generated method stub
+            return builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    // TODO Auto-generated method stub
+                }
+
+            });
+        }
+
 
     @Override
     public void onClick(View view) {
@@ -152,21 +185,27 @@ public class ProblemDetailActivity extends AppCompatActivity implements View.OnC
                 assign_popupWindow.dismiss();
                 break;
             case R.id.handle_liner:
-                if(x)
-                {
-                    handle_popupWindow.dismiss();
-                    x = false;
-                }
-                else
+                if(handle_popupWindow == null || handle_popupWindow.isShowing() == false)
                 {
                     showHandlePopupWindow();
                     handle_popupWindow.showAtLocation(v,Gravity.CENTER,50, 20);
-                    x = true;
+                }
+                else
+                {
+                    handle_popupWindow.dismiss();
                 }
                 break;
             case R.id.handle_user:
-                handleUser_text.setText(user_text.getText());
-                handle_popupWindow.dismiss();
+                if (assign_popupWindow != null)
+                {
+                    handleUser_text.setText(user_text.getText());
+                    handle_popupWindow.dismiss();
+                }
+                else if(refuse_popupWindow != null)
+                {
+                    refuseHandle_text.setText(user_text.getText());
+                    handle_popupWindow.dismiss();
+                }
                 break;
             case R.id.refuse_btn:
                 showRefusePopupWindow();
@@ -180,32 +219,67 @@ public class ProblemDetailActivity extends AppCompatActivity implements View.OnC
                 refuse_popupWindow.dismiss();
                 break;
             case R.id.refuseHandle_liner:
-                if(y)
-                {
-                    handle_popupWindow.dismiss();
-                    y = false;
-                }
-                else
+                if(handle_popupWindow == null || handle_popupWindow.isShowing() == false)
                 {
                     showHandlePopupWindow();
                     handle_popupWindow.showAtLocation(v,Gravity.CENTER,50, 50);
-                    y = true;
-                }
-                break;
-            case R.id.refuse_reason:
-                if(z)
-                {
-                    refuseReason_popupWindow.dismiss();
-                    z = false;
                 }
                 else
                 {
-                    showRefuseReasonPopupWindow();
-                    z = true;
+                    handle_popupWindow.dismiss();
                 }
                 break;
+            case R.id.refuse_reason:
+                if(refuseReason_popupWindow == null || refuseReason_popupWindow.isShowing() == false)
+                {
+                    showRefuseReasonPopupWindow();
+                }
+                else
+                {
+                    refuseReason_popupWindow.dismiss();
+                }
+                break;
+            case R.id.delay_btn:
+                showDelayPopupWindow();
+                delay_title.setText("延期");
+                assign_liner.setBackgroundColor(0xFFBDBDBD);
+                delay_liner.setBackgroundColor(0xFFBDBDBD);
+                delete_liner.setBackgroundColor(0xFFBDBDBD);
+                operate_btn.setBackgroundColor(0xFFBDBDBD);
+                operateList_liner.setBackgroundColor(0xFFBBBBBB);
+                break;
+            case R.id.delayDelete_img:
+                delay_popupWindow.dismiss();
+                break;
+            case R.id.close_btn:
+                showDelayPopupWindow();
+                delay_title.setText("关闭");
+                assign_liner.setBackgroundColor(0xFFBDBDBD);
+                delay_liner.setBackgroundColor(0xFFBDBDBD);
+                delete_liner.setBackgroundColor(0xFFBDBDBD);
+                operate_btn.setBackgroundColor(0xFFBDBDBD);
+                operateList_liner.setBackgroundColor(0xFFBBBBBB);
+                break;
+            case R.id.change_btn:
+                Intent intent = new Intent(ProblemDetailActivity.this,CreateQuestionActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.delete_btn:
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle("信息");
+                builder.setMessage("是否确认删除？");
+
+                //为builder对象添加确定按钮，不过这里嵌套了一个函数
+                setPositiveButton(builder);
+                //为builder对象添加取消按钮
+                builder = setNegativeButton(builder);
+
+                //builder创建对话框对象AlertDialog
+                AlertDialog simpledialog = builder.create();
+                simpledialog.show();
         }
     }
+
 
     private void showOperatePopupWindow() {
         View contentView = LayoutInflater.from(ProblemDetailActivity.this).inflate(R.layout.operate_list, null);
@@ -221,7 +295,7 @@ public class ProblemDetailActivity extends AppCompatActivity implements View.OnC
         operate_button.getLocationOnScreen(location);
         operate_popupWindow.setWidth(ViewGroup.LayoutParams.MATCH_PARENT);
         operate_popupWindow.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
-        operate_popupWindow.showAtLocation(operate_button, Gravity.NO_GRAVITY, 0, location[1]);
+        operate_popupWindow.showAtLocation(contentView, Gravity.NO_GRAVITY, 0, location[1] + operate_button.getMeasuredHeight() +40 - popupHeight);
         WindowManager windowManager = ProblemDetailActivity.this.getWindowManager();
         WindowManager.LayoutParams params = ProblemDetailActivity.this.getWindow().getAttributes();
         //当弹出Popupwindow时，背景变半透明
@@ -246,9 +320,17 @@ public class ProblemDetailActivity extends AppCompatActivity implements View.OnC
         TextView assign_btn = contentView.findViewById(R.id.assign_btn);
         TextView finish_btn = contentView.findViewById(R.id.finish_btn);
         TextView refuse_btn = contentView.findViewById(R.id.refuse_btn);
+        TextView delay_btn = contentView.findViewById(R.id.delay_btn);
+        TextView close_btn = contentView.findViewById(R.id.close_btn);
+        TextView change_btn = contentView.findViewById(R.id.change_btn);
+        TextView delete_btn = contentView.findViewById(R.id.delete_btn);
         assign_btn.setOnClickListener(this);
         finish_btn.setOnClickListener(this);
         refuse_btn.setOnClickListener(this);
+        delay_btn.setOnClickListener(this);
+        close_btn.setOnClickListener(this);
+        change_btn.setOnClickListener(this);
+        delete_btn.setOnClickListener(this);
         assign_liner = contentView.findViewById(R.id.assign_liner);
         delay_liner = contentView.findViewById(R.id.delay_liner);
         delete_liner = contentView.findViewById(R.id.delete_liner);
@@ -341,6 +423,7 @@ public class ProblemDetailActivity extends AppCompatActivity implements View.OnC
         handle_popupWindow = new PopupWindow(v, 400, 300);
         handle_popupWindow.setOutsideTouchable(true);
         handle_popupWindow.setFocusable(true);
+        handle_popupWindow.isShowing();
         handle_user = v.findViewById(R.id.handle_user);
         handle_user.setOnClickListener(this);
         user_text = v.findViewById(R.id.user_text);
@@ -354,6 +437,7 @@ public class ProblemDetailActivity extends AppCompatActivity implements View.OnC
         refuseReason_popupWindow.setOutsideTouchable(true);
         refuseReason_popupWindow.showAtLocation(contentView,Gravity.CENTER,50, 70);
         refuseReason_popupWindow.setFocusable(true);
+        refuseReason_popupWindow.isShowing();
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(
                 ProblemDetailActivity.this,R.layout.refuse_list_item,data
         );
@@ -367,5 +451,41 @@ public class ProblemDetailActivity extends AppCompatActivity implements View.OnC
                 refuseReason_popupWindow.dismiss();
             }
         });
+    }
+
+    private void showDelayPopupWindow() {
+        View contentView = LayoutInflater.from(ProblemDetailActivity.this).inflate(R.layout.delay_page, null);
+        contentView.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
+        delay_popupWindow = new PopupWindow(contentView, 600, 0);
+        delay_popupWindow.setBackgroundDrawable(new BitmapDrawable());//注意这里如果不设置，下面的setOutsideTouchable(true);允许点击外部消失会失效
+        delay_popupWindow.setOutsideTouchable(true);   //设置外部点击关闭ppw窗口
+        delay_popupWindow.setFocusable(true);
+        delay_popupWindow.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
+        delay_popupWindow.showAtLocation(contentView, Gravity.CENTER, 0, 0);
+        WindowManager.LayoutParams params = ProblemDetailActivity.this.getWindow().getAttributes();
+        //当弹出Popupwindow时，背景变半透明
+        params.alpha = 0.5f;
+        ProblemDetailActivity.this.getWindow().addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
+        ProblemDetailActivity.this.getWindow().setAttributes(params);
+        //设置Popupwindow关闭监听，当Popupwindow关闭，背景恢复0.7f
+        delay_popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
+            @Override
+            public void onDismiss() {
+                WindowManager.LayoutParams params = ProblemDetailActivity.this.getWindow().getAttributes();
+                params.alpha = 0.7f;
+                ProblemDetailActivity.this.getWindow().addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
+                ProblemDetailActivity.this.getWindow().setAttributes(params);
+                assign_liner.setBackgroundColor(0xFFffffff);
+                delay_liner.setBackgroundColor(0xFFffffff);
+                delete_liner.setBackgroundColor(0xFFffffff);
+                operate_btn.setBackgroundColor(0xFFffffff);
+                operateList_liner.setBackgroundColor(0xFFF4F4F4);
+            }
+        });
+        delay_popupWindow.setAnimationStyle(R.style.AnimationFade);
+        delay_popupWindow.update();
+        delayDelete_img = contentView.findViewById(R.id.delayDelete_img);
+        delayDelete_img.setOnClickListener(this);
+        delay_title = contentView.findViewById(R.id.delay_title);
     }
 }
