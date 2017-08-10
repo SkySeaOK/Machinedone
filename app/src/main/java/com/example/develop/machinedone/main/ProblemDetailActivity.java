@@ -196,12 +196,12 @@ public class ProblemDetailActivity extends AppCompatActivity implements View.OnC
                 }
                 break;
             case R.id.handle_user:
-                if (assign_popupWindow != null)
+                if (assign_popupWindow.isShowing() != false)
                 {
                     handleUser_text.setText(user_text.getText());
                     handle_popupWindow.dismiss();
                 }
-                else if(refuse_popupWindow != null)
+                else if(refuse_popupWindow.isShowing() != false)
                 {
                     refuseHandle_text.setText(user_text.getText());
                     handle_popupWindow.dismiss();
