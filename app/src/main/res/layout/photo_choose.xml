@@ -5,14 +5,14 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:padding="16dp"
-    tools:context="com.example.develop.machinedone.main.ProblemActivity">
+    tools:context="com.example.develop.machinedone.fragment.ProblemActivity">
     >
-    <com.example.develop.machinedone.main.MyGridView
+    <com.example.develop.machinedone.fragment.MyGridView
         android:id="@+id/grid_view"
         android:numColumns="4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-    </com.example.develop.machinedone.main.MyGridView>
+    </com.example.develop.machinedone.fragment.MyGridView>
 </LinearLayout>

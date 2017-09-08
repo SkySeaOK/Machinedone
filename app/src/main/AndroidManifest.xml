@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.develop.machinedone">
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <!-- 写外部存储权限：保存相片用 -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <!-- 挂载文件系统权限：这个没有也可以 -->
@@ -9,7 +10,6 @@
     <!-- 拍照权限 -->
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.INTERNET" />
-
 
     <application
         android:allowBackup="true"
@@ -19,33 +19,36 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".main.AllProjectActivity"
+            android:name=".fragment.AllProjectActivity"
             android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
+        <activity
+            android:name=".fragment.CreateProjectActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".fragment.MainProjectActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".fragment.CreateQuestionActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".fragment.ProblemActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".fragment.ProblemDetailActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.linchaolong.android.imagepicker.cropper.CropImageActivity"
+            android:theme="@style/Base.Theme.AppCompat" />
+        <activity android:name=".fragment.ImageDetail" />
+        <activity android:name=".main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".main.CreateProjectActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".main.MainProjectActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".main.CreateQuestionActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".main.ProblemActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".main.ProblemDetailActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name="com.linchaolong.android.imagepicker.cropper.CropImageActivity"
-            android:theme="@style/Base.Theme.AppCompat" />
-        <activity android:name=".main.ImageDetail"></activity>
     </application>
 
 </manifest>

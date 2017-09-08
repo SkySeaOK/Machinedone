@@ -1,10 +1,8 @@
-package com.example.develop.machinedone.main;
+package com.example.develop.machinedone.fragment;
 
 import android.content.Intent;
-import android.graphics.drawable.BitmapDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +17,6 @@ import android.widget.TextView;
 import com.example.develop.machinedone.R;
 import com.example.develop.machinedone.adapter.ProblemAdapter;
 import com.example.develop.machinedone.api.ApiService;
-import com.example.develop.machinedone.bean.MainList;
 import com.example.develop.machinedone.bean.ProblemBean;
 import com.example.develop.machinedone.model.Url;
 

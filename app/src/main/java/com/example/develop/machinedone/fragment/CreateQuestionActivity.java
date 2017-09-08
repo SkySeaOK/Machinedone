@@ -1,28 +1,19 @@
-package com.example.develop.machinedone.main;
+package com.example.develop.machinedone.fragment;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.PixelFormat;
-import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
-import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,8 +27,6 @@ import com.example.develop.machinedone.adapter.GvAdapter;
 import com.linchaolong.android.imagepicker.ImagePicker;
 import com.linchaolong.android.imagepicker.cropper.CropImage;
 import com.linchaolong.android.imagepicker.cropper.CropImageView;
-
-import static android.provider.MediaStore.Files.FileColumns.PARENT;
 
 
 public class CreateQuestionActivity extends AppCompatActivity implements View.OnClickListener {
@@ -180,7 +169,6 @@ public class CreateQuestionActivity extends AppCompatActivity implements View.On
             resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         imagePicker.onActivityResult(CreateQuestionActivity.this,requestCode, resultCode, data);
-
     }
 
     @Override
@@ -251,7 +239,8 @@ public class CreateQuestionActivity extends AppCompatActivity implements View.On
         }
     }
 
-    private void showPopupWindow(View v) {
+    private void showPopupWindow(View v)
+    {
         View contentView = LayoutInflater.from(CreateQuestionActivity.this).inflate(R.layout.question_type, null);
         red_defect = contentView.findViewById(R.id.red_defect);
         orange_improve = contentView.findViewById(R.id.orange_improve);
@@ -268,7 +257,6 @@ public class CreateQuestionActivity extends AppCompatActivity implements View.On
         question_popupWindow.setOutsideTouchable(true);
         question_popupWindow.showAsDropDown(linner_question, 280, 0);
         question_popupWindow.setFocusable(true);
-
     }
 
     private void prioritylevel() {

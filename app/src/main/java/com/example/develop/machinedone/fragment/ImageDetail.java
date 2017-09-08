@@ -1,4 +1,4 @@
-package com.example.develop.machinedone.main;
+package com.example.develop.machinedone.fragment;
 
 import android.content.Intent;
 import android.graphics.Bitmap;

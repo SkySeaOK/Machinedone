@@ -60,8 +60,6 @@ public class LogListViewAdapter extends BaseAdapter {
         TextView user = inflate.findViewById(R.id.user_create);
         ImageView logo = inflate.findViewById(R.id.item_img);
         TextView time = inflate.findViewById(R.id.create_usetime);
-        long l = System.currentTimeMillis();
-
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss");
         Date date = new Date(System.currentTimeMillis());
         String nowtime = simpleDateFormat.format(date);

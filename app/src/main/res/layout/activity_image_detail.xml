@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.develop.machinedone.main.ImageDetail">
+    tools:context="com.example.develop.machinedone.fragment.ImageDetail">
 <ImageView
     android:layout_gravity="center
 "

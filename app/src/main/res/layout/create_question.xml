@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F4F4F4"
-    tools:context="com.example.develop.machinedone.main.CreateProjectActivity">
+    tools:context="com.example.develop.machinedone.fragment.CreateProjectActivity">
 
     <include
         android:id="@+id/title_toolbar1"
@@ -231,9 +231,7 @@
                     android:padding="10dp"
                     android:text="图片"
                     android:textColor="#000" />
-
                     <include layout="@layout/photo_choose" />
-
             </LinearLayout>
 
             <Button

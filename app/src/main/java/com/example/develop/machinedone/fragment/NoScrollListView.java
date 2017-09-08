@@ -1,4 +1,4 @@
-package com.example.develop.machinedone.main;
+package com.example.develop.machinedone.fragment;
 
 /**
  * Created by develop on 2017/8/1.
