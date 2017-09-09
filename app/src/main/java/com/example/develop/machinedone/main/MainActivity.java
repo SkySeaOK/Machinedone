@@ -10,6 +10,7 @@ import android.os.Bundle;
 import com.example.develop.machinedone.R;
 import com.example.develop.machinedone.fragment.AllProjectActivity;
 import com.example.develop.machinedone.fragment.TextFragment;
+import com.example.develop.machinedone.fragment.WorkPage;
 import com.yinglan.alphatabs.AlphaTabsIndicator;
 
 import java.util.ArrayList;
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
         MainAdapter mainAdapter = new MainAdapter(getSupportFragmentManager());
         mViewPger.setAdapter(mainAdapter);
         mViewPger.addOnPageChangeListener(mainAdapter);
+        mViewPger.setOffscreenPageLimit(4);
 
         alphaTabsIndicator = (AlphaTabsIndicator) findViewById(R.id.alphaIndicator);
         alphaTabsIndicator.setViewPager(mViewPger);
@@ -42,13 +44,13 @@ public class MainActivity extends AppCompatActivity {
     private class MainAdapter extends FragmentPagerAdapter implements ViewPager.OnPageChangeListener {
 
         private List<Fragment> fragments = new ArrayList<>();
-        private String[] titles = {"微信", "通讯录", "发现", "我"};
+        private String[] titles = {"消息", "圈子", "工作", "我的"};
 
         public MainAdapter(FragmentManager fm) {
             super(fm);
             fragments.add(new AllProjectActivity());
-            fragments.add(TextFragment.newInstance(titles[1]));
             fragments.add(TextFragment.newInstance(titles[2]));
+            fragments.add(new WorkPage());
             fragments.add(TextFragment.newInstance(titles[3]));
         }
 

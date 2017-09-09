@@ -1,5 +1,6 @@
 package com.example.develop.machinedone.fragment;
 
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
@@ -36,7 +37,6 @@ public class AllProjectActivity extends Fragment implements View.OnClickListener
     private ListView listView;
     private View inflate;
 
-    //    private   String url="http://192.168.1.110:8080/";
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {

@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.develop.machinedone.R;
 
@@ -40,8 +41,7 @@ public class CreateProjectActivity extends AppCompatActivity implements View.OnC
                 break;
             case R.id.toolbar_img:
 
-                Intent intent = new Intent(CreateProjectActivity.this,MainProjectActivity.class);
-                startActivity(intent);
+                Toast.makeText(this, "头像点击事件", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.create_btn:
                 //提交参数到AllProjectActivity

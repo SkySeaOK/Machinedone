@@ -23,8 +23,7 @@ public class TextFragment extends Fragment {
 
         TextView tv = new TextView(getActivity());
         tv.setText(mTitle);
-        tv.setTextSize(30);
-        tv.setPadding(50, 50, 50, 50);
+        tv.setTextSize(30);        tv.setPadding(50, 50, 50, 50);
         tv.setGravity(Gravity.CENTER);
 
         return tv;

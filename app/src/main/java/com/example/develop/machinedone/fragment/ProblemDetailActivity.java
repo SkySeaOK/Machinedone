@@ -114,9 +114,9 @@ public class ProblemDetailActivity extends AppCompatActivity implements View.OnC
     }
 
         //返回对象是原来的Builder对象
-        private AlertDialog.Builder setPositiveButton(AlertDialog.Builder builder) {
+        private void setPositiveButton(AlertDialog.Builder builder) {
             // TODO Auto-generated method stub
-            return builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+            builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
 
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
@@ -151,14 +151,14 @@ public class ProblemDetailActivity extends AppCompatActivity implements View.OnC
                 Toast.makeText(this, "头像点击事件", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.log_btn:
-                if (log_listview.getVisibility() == view.VISIBLE) {
-                    log_listview.setVisibility(view.GONE);
+                if (log_listview.getVisibility() == View.VISIBLE) {
+                    log_listview.setVisibility(View.GONE);
                 } else {
-                    log_listview.setVisibility(view.VISIBLE);
+                    log_listview.setVisibility(View.VISIBLE);
                 }
                 break;
             case R.id.operate_button:
-                showOperatePopupWindow();
+                    showOperatePopupWindow();
                 break;
             case R.id.operate_btn:
                 operate_popupWindow.dismiss();
@@ -185,7 +185,7 @@ public class ProblemDetailActivity extends AppCompatActivity implements View.OnC
                 assign_popupWindow.dismiss();
                 break;
             case R.id.handle_liner:
-                if(handle_popupWindow == null || handle_popupWindow.isShowing() == false)
+                if(handle_popupWindow == null || !handle_popupWindow.isShowing())
                 {
                     showHandlePopupWindow();
                     handle_popupWindow.showAtLocation(v,Gravity.CENTER,50, 20);
@@ -196,12 +196,12 @@ public class ProblemDetailActivity extends AppCompatActivity implements View.OnC
                 }
                 break;
             case R.id.handle_user:
-                if (assign_popupWindow.isShowing() != false)
+                if (assign_popupWindow.isShowing())
                 {
                     handleUser_text.setText(user_text.getText());
                     handle_popupWindow.dismiss();
                 }
-                else if(refuse_popupWindow.isShowing() != false)
+                else if(refuse_popupWindow.isShowing())
                 {
                     refuseHandle_text.setText(user_text.getText());
                     handle_popupWindow.dismiss();
@@ -219,7 +219,7 @@ public class ProblemDetailActivity extends AppCompatActivity implements View.OnC
                 refuse_popupWindow.dismiss();
                 break;
             case R.id.refuseHandle_liner:
-                if(handle_popupWindow == null || handle_popupWindow.isShowing() == false)
+                if(handle_popupWindow == null || !handle_popupWindow.isShowing())
                 {
                     showHandlePopupWindow();
                     handle_popupWindow.showAtLocation(v,Gravity.CENTER,50, 50);
@@ -230,7 +230,7 @@ public class ProblemDetailActivity extends AppCompatActivity implements View.OnC
                 }
                 break;
             case R.id.refuse_reason:
-                if(refuseReason_popupWindow == null || refuseReason_popupWindow.isShowing() == false)
+                if(refuseReason_popupWindow == null || !refuseReason_popupWindow.isShowing())
                 {
                     showRefuseReasonPopupWindow();
                 }
@@ -446,7 +446,7 @@ public class ProblemDetailActivity extends AppCompatActivity implements View.OnC
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                String s = data[i].toString();
+                String s = data[i];
                 refuse_text.setText(s);
                 refuseReason_popupWindow.dismiss();
             }

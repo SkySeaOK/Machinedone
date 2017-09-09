@@ -60,7 +60,7 @@ public class CreateQuestionActivity extends AppCompatActivity implements View.On
     String path;
     private ImageView img;
 
-    @SuppressLint("ClickableViewAccessibility")
+    @SuppressLint({"ClickableViewAccessibility", "SetTextI18n"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
