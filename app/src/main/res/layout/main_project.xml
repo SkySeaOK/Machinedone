@@ -8,7 +8,7 @@
     android:focusable="true"
     android:focusableInTouchMode="true"
     android:orientation="vertical"
-    tools:context="com.example.develop.machinedone.fragment.MainProjectActivity">
+    tools:context="com.example.develop.machinedone.activity.MainProjectActivity">
 
     <include layout="@layout/title" />
 

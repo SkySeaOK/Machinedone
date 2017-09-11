@@ -1,4 +1,4 @@
-package com.example.develop.machinedone.fragment;
+package com.example.develop.machinedone.activity;
 
 import android.widget.GridView;
 

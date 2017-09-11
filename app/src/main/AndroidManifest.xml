@@ -23,24 +23,24 @@
             android:name=".fragment.AllProjectActivity"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
-            android:name=".fragment.CreateProjectActivity"
+            android:name=".activity.CreateProjectActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".fragment.MainProjectActivity"
+            android:name=".activity.MainProjectActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".fragment.CreateQuestionActivity"
+            android:name=".activity.CreateQuestionActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".fragment.ProblemActivity"
+            android:name=".activity.ProblemActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".fragment.ProblemDetailActivity"
+            android:name=".activity.ProblemDetailActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="com.linchaolong.android.imagepicker.cropper.CropImageActivity"
             android:theme="@style/Base.Theme.AppCompat" />
-        <activity android:name=".fragment.ImageDetail" />
+        <activity android:name=".activity.ImageDetail" />
         <activity
             android:name=".main.MainActivity"
             android:theme="@style/AppTheme.NoActionBar">

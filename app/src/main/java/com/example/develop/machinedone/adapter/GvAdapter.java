@@ -65,12 +65,12 @@ public class GvAdapter extends BaseAdapter{
         if (position==mMaxPosition-1){//说明要显示
             Glide.with(context).load(R.mipmap.ic_photo).dontAnimate()
                     .centerCrop().into(vh.img);
-//            vh.img.setImageResource(R.drawable.id_photo);
-            vh.img.setVisibility(View.VISIBLE);
-            vh.demimg.setVisibility(View.GONE);
-            if (position==6&&mMaxPosition==7){//设置最大6个。那么达到最大，就隐藏。
-//                vh.img.setImageResource(R.drawable.id_photo);
                 vh.img.setVisibility(View.GONE);
+//            vh.img.setImageResource(R.drawable.id_photo);
+                vh.img.setVisibility(View.VISIBLE);
+                vh.demimg.setVisibility(View.GONE);
+                if (position==6&&mMaxPosition==7){//设置最大6个。那么达到最大，就隐藏。
+//                vh.img.setImageResource(R.drawable.id_photo);
             }
         }else{//设置图片。
             vh.demimg.setVisibility(View.VISIBLE);
