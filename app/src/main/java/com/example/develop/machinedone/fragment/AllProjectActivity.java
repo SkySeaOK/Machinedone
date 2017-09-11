@@ -14,6 +14,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.develop.machinedone.R;
+import com.example.develop.machinedone.activity.CreateProjectActivity;
+import com.example.develop.machinedone.activity.MainProjectActivity;
 import com.example.develop.machinedone.adapter.MainListAdapter;
 import com.example.develop.machinedone.api.ApiService;
 import com.example.develop.machinedone.bean.MainList;

@@ -13,7 +13,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.develop.machinedone.R;
-import com.example.develop.machinedone.fragment.TabsView.OnTabsItemClickListener;
+import com.example.develop.machinedone.tool.TabsView;
+import com.example.develop.machinedone.tool.TabsView.OnTabsItemClickListener;
 
 import java.util.ArrayList;
 import java.util.List;

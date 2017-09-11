@@ -7,12 +7,12 @@
     android:orientation="vertical"
     android:layout_height="wrap_content"
     android:padding="16dp"
-    tools:context="com.example.develop.machinedone.fragment.ProblemActivity">
+    tools:context="com.example.develop.machinedone.activity.ProblemActivity">
     >
-    <com.example.develop.machinedone.fragment.MyGridView
+    <com.example.develop.machinedone.activity.MyGridView
         android:id="@+id/grid_view"
         android:numColumns="4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-    </com.example.develop.machinedone.fragment.MyGridView>
+    </com.example.develop.machinedone.activity.MyGridView>
 </LinearLayout>

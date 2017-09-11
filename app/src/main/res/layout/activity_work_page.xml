@@ -9,7 +9,7 @@
 
     <include layout="@layout/title"/>
 
-    <com.example.develop.machinedone.fragment.TabsView
+    <com.example.develop.machinedone.tool.TabsView
         android:id="@+id/tabslayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
