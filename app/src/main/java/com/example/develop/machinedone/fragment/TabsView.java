@@ -22,10 +22,10 @@ import android.widget.TextView;
  */
 public class TabsView extends LinearLayout {
 
-    private int mSelectedColor = 0xffff0000;// 选中的字体颜色
+    private int mSelectedColor = 0xff56B5D3;// 选中的字体颜色
     private int mNotSelectedColor = ((mSelectedColor >>> 25) << 24) | (mSelectedColor & 0x00ffffff);// 未选中的字体颜色
 
-    private int mIndicatorColor = 0xff0000ff;// 指示器的颜色
+    private int mIndicatorColor = 0xff56B5D3;// 指示器的颜色
 
     private LinearLayout mTabsContainer;// 放置tab的容器
     private View mIndicator, mBottomLine;// 指示器和底部横线
@@ -51,7 +51,7 @@ public class TabsView extends LinearLayout {
         // 初始化指示器
         mIndicator = new View(getContext());
         mIndicator.setBackgroundColor(mIndicatorColor);
-        mIndicator.setLayoutParams(new LayoutParams(300, 8));// 先任意设置宽度
+        mIndicator.setLayoutParams(new LayoutParams(300, 5));// 先任意设置宽度
         addView(mIndicator);
         // 初始化底部横线
         mBottomLine = new View(getContext());
@@ -138,6 +138,7 @@ public class TabsView extends LinearLayout {
         // 设置每个tab的状态
         for (int i = 0; i < childCount; i++) {
             TextView childView = (TextView) mTabsContainer.getChildAt(i);
+            childView.setTextSize(14);
             if (i == position) {
                 childView.setTextColor(mSelectedColor);
             } else {

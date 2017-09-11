@@ -25,4 +25,7 @@
     <string name="write_assignDescribe">最多输入200个字符</string>
     <string name="write_delayDescribe">最多输入2000个字符</string>
     <string name="project_description">项目描述</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

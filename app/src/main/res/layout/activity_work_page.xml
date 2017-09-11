@@ -7,6 +7,8 @@
     android:orientation="vertical"
     tools:context="com.example.develop.machinedone.fragment.WorkPage">
 
+    <include layout="@layout/title"/>
+
     <com.example.develop.machinedone.fragment.TabsView
         android:id="@+id/tabslayout"
         android:layout_width="match_parent"
