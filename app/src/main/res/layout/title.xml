@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:id="@+id/toolbar_linnear"
     android:padding="5dp"
-    android:background="#fff">
+    android:background="#5BD3F2">
 
         <ImageView
             android:id="@+id/toolbar_back"
@@ -21,7 +21,7 @@
             android:layout_gravity="center"
             android:gravity="center_horizontal"
             android:layout_weight="1"
-            android:textColor="#303F9F"
+            android:textColor="#ffffff"
             android:textSize="17sp" />
         <ImageView
             android:id="@+id/toolbar_img"
@@ -35,7 +35,7 @@
             android:gravity="center_vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#303F9F"
+            android:textColor="#ffffff"
             android:textSize="14sp"
             />
 </LinearLayout>
