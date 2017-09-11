@@ -21,10 +21,14 @@
         android:divider="#F4F4F4"
         android:dividerHeight="25px"
         />
-    <Button
+
+    <at.markushi.ui.CircleButton
         android:id="@+id/addlist"
-        android:background="#56B5D3"
-        android:text="@string/button_main"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="64dip"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="8dip"
+        android:src="@mipmap/ic_add"
+        app:cb_color="#56B5D3" />
 </LinearLayout>

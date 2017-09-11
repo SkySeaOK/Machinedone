@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -61,7 +60,7 @@ public class AllProjectActivity extends Fragment implements View.OnClickListener
                 startActivity(intent);
             }
         });
-        Button btn = (Button)inflate.findViewById(R.id.addlist);
+        at.markushi.ui.CircleButton btn = (at.markushi.ui.CircleButton)inflate.findViewById(R.id.addlist);
         toolbarImg.setImageResource(R.mipmap.title_img);
         toolbarImg1.setImageResource(R.mipmap.ic_thok1);
         username.setText("User");
