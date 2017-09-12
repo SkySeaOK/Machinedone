@@ -9,6 +9,7 @@ import android.os.Bundle;
 
 import com.example.develop.machinedone.R;
 import com.example.develop.machinedone.fragment.AllProjectActivity;
+import com.example.develop.machinedone.fragment.MineFragment;
 import com.example.develop.machinedone.fragment.TextFragment;
 import com.example.develop.machinedone.fragment.WorkPage;
 import com.yinglan.alphatabs.AlphaTabsIndicator;
@@ -51,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
             fragments.add(new AllProjectActivity());
             fragments.add(TextFragment.newInstance(titles[2]));
             fragments.add(new WorkPage());
-            fragments.add(TextFragment.newInstance(titles[3]));
+            fragments.add(new MineFragment());
         }
 
         @Override

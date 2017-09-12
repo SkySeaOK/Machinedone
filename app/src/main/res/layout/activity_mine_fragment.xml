@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#DEDDE0"
+    android:orientation="vertical"
+    tools:context="com.example.develop.machinedone.fragment.MineFragment">
+    <include layout="@layout/title"/>
+<LinearLayout
+    android:background="#fff"
+    android:gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <com.example.develop.machinedone.tool.CircleRangeView
+        android:id="@+id/circleRangeView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        app:rangeColorArray="@array/circlerangeview_colors"
+        app:rangeTextArray="@array/circlerangeview_txts"
+        app:rangeValueArray="@array/circlerangeview_values"/>
+</LinearLayout>
+    <LinearLayout
+        android:paddingBottom="5dp"
+        android:background="#fff"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textSize="17sp"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:text="本周"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:textSize="17sp"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:text="本月"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:textSize="17sp"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:text="本年"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+<ScrollView
+    android:background="#DEDDE0"
+    android:layout_marginTop="3dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:background="#DEDDE0"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="1dp"
+            android:layout_marginTop="8dp"
+            android:background="#fff"
+            android:paddingBottom="5dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="20dp"
+            android:paddingTop="5dp">
+            <ImageView
+                android:layout_marginRight="6dp"
+                android:layout_marginLeft="6dp"
+                android:background="@mipmap/ic_launcher_people"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:textSize="14sp"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:text="@string/personal_data"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="1dp"
+            android:layout_marginTop="1dp"
+            android:background="#fff"
+            android:paddingBottom="5dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="20dp"
+            android:paddingTop="5dp">
+            <ImageView
+                android:layout_marginRight="6dp"
+                android:layout_marginLeft="6dp"
+                android:background="@mipmap/ic_launcher_calendars"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:textSize="14sp"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:text="@string/work_calendar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="1dp"
+            android:layout_marginTop="1dp"
+            android:background="#fff"
+            android:paddingBottom="5dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="20dp"
+            android:paddingTop="5dp">
+            <ImageView
+                android:layout_marginRight="6dp"
+                android:layout_marginLeft="6dp"
+                android:background="@mipmap/ic_launcher_questions"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:textSize="14sp"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:text="@string/faq"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="1dp"
+            android:layout_marginTop="1dp"
+            android:background="#fff"
+            android:paddingBottom="5dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="20dp"
+            android:paddingTop="5dp">
+            <ImageView
+                android:layout_marginRight="6dp"
+                android:layout_marginLeft="6dp"
+                android:background="@mipmap/ic_launcher_option"
+                android:layout_width="35dp"
+                android:layout_height="35dp" />
+            <TextView
+                android:textSize="14sp"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:text="@string/option"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="1dp"
+        android:layout_marginTop="1dp"
+        android:background="#fff"
+        android:paddingBottom="5dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="20dp"
+        android:paddingTop="5dp">
+        <ImageView
+            android:layout_marginRight="6dp"
+            android:layout_marginLeft="6dp"
+            android:background="@mipmap/ic_launcher_details"
+            android:layout_width="35dp"
+            android:layout_height="35dp" />
+        <TextView
+            android:textSize="14sp"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:text="@string/detail_MachineDone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    </LinearLayout>
+</ScrollView>
+
+
+</LinearLayout>
