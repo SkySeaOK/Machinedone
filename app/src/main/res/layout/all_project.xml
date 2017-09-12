@@ -22,13 +22,25 @@
         android:dividerHeight="25px"
         />
 
-    <at.markushi.ui.CircleButton
-        android:id="@+id/addlist"
-        android:layout_width="match_parent"
-        android:layout_height="64dip"
-        android:layout_alignParentRight="true"
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="8dip"
-        android:src="@mipmap/ic_add"
-        app:cb_color="#56B5D3" />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <at.markushi.ui.CircleButton
+            android:id="@+id/addlist"
+            android:layout_width="wrap_content"
+            android:layout_height="64dip"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="8dip"
+            android:layout_marginBottom="8dip"
+            android:src="@mipmap/ic_add"
+            app:cb_color="#56B5D3" />
+
+    </LinearLayout>
 </LinearLayout>

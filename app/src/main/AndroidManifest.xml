@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tool="http://schemas.android.com/tools"
     package="com.example.develop.machinedone">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -20,7 +21,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".fragment.AllProjectActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".activity.CreateProjectActivity"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -51,6 +52,7 @@
         </activity>
         <activity android:name=".fragment.WorkPage" />
         <activity android:name=".fragment.MineFragment"></activity>
+        <activity android:name=".fragment.PersonFragment"></activity>
     </application>
 
 </manifest>
