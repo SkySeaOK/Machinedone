@@ -1,15 +1,20 @@
 package com.example.develop.machinedone.fragment;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.develop.machinedone.R;
 import com.github.mikephil.charting.charts.PieChart;
-import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.data.PieData;
+import com.github.mikephil.charting.data.PieDataSet;
+import com.github.mikephil.charting.data.PieEntry;
+
+import java.util.ArrayList;
 
 public class PersonFragment extends Fragment {
 
@@ -30,7 +35,47 @@ public class PersonFragment extends Fragment {
 
     private void initView() {
         mpieChart = (PieChart) inflate.findViewById(R.id.consume_pie_chart);
+        final     PieData pieData = getPieData(5, 100);
+        mpieChart.setUsePercentValues(true);
+        mpieChart.post(new Runnable() {
+            @Override
+            public void run() {
+                showChart(mpieChart,pieData);
 
+            }
+        });
+    }
+
+    public PieData  getPieData(int count, float range)
+    {
+        ArrayList<String> xValues = new ArrayList<>();//xValues是饼块内容的容器
+        for (int i=0;i<count;i++) {
+            xValues.add("Quarterly"+(i+1));
+        }
+        ArrayList<PieEntry> yValues = new ArrayList<PieEntry>();  //yVals用来表示封装每个饼块的实际数据
+        // 饼图数据
+            yValues.add(new PieEntry(1));
+            yValues.add(new PieEntry(2));
+            yValues.add(new PieEntry(3));
+            yValues.add(new PieEntry(4));
+            yValues.add(new PieEntry(5));
+        //y轴的集合
+        PieDataSet pieDataSet  = new PieDataSet(yValues, " ");
+        pieDataSet.setSliceSpace(0f); //设置个饼状图之间的距离
+        ArrayList<Integer> colors = new ArrayList<Integer>();
+        // 饼图颜色
+        colors.add(Color.rgb(205, 205, 205));
+        colors.add(Color.rgb(114, 188, 223));
+        colors.add(Color.rgb(255, 123, 124));
+        colors.add(Color.rgb(57, 135, 200));
+        colors.add(Color.rgb(66,123,222));
+
+        pieDataSet.setColors(colors);
+        DisplayMetrics metrics = getResources().getDisplayMetrics();
+        float px = 5 * (metrics.densityDpi / 160f);
+        pieDataSet.setSelectionShift(px); // 选中态多出的长度
+        PieData data = new PieData(pieDataSet);
+        return data;
     }
 
     private void showChart(PieChart pieChart, PieData pieData) {
@@ -43,8 +88,8 @@ public class PersonFragment extends Fragment {
         //pieChart.setDescription();
 
         // mChart.setDrawYValues(true);
-        pieChart.setDrawCenterText(true);  //饼状图中间可以添加文字
-        pieChart.setCenterText("f分拣效率");  //饼状图中间的文字
+//        pieChart.setDrawCenterText(true);  //饼状图中间可以添加文字
+//        pieChart.setCenterText("f分拣效率");  //饼状图中间的文字
 
 
         pieChart.setDrawHoleEnabled(true);
@@ -75,11 +120,11 @@ public class PersonFragment extends Fragment {
         // undo all highlights
 //      pieChart.highlightValues(null);
 //      pieChart.invalidate();
-        Legend mLegend = pieChart.getLegend();  //设置比例图
-        mLegend.setPosition(Legend.LegendPosition.RIGHT_OF_CHART);  //最右边显示
+//        Legend mLegend = pieChart.getLegend();  //设置比例图
+//        mLegend.setPosition(Legend.LegendPosition.RIGHT_OF_CHART);  //最右边显示
 //      mLegend.setForm(LegendForm.LINE);  //设置比例图的形状，默认是方形
-        mLegend.setXEntrySpace(7f);
-        mLegend.setYEntrySpace(5f);
+//        mLegend.setXEntrySpace(7f);
+//        mLegend.setYEntrySpace(5f);
 
         pieChart.animateXY(1000, 1000);  //设置动画
         // mChart.spin(2000, 0, 360);
