@@ -43,6 +43,7 @@
 
                 <TextView
                     android:text="54"
+                    android:textColor="#000"
                     android:textSize="20sp"
                     android:layout_gravity="center"
                     android:gravity="center"
@@ -52,7 +53,6 @@
 
                 <TextView
                     android:text="任务数"
-                    android:textColor="#DEDDE0"
                     android:gravity="top"
                     android:layout_gravity="center"
                     android:layout_weight="1"
@@ -61,6 +61,7 @@
 
                 <TextView
                     android:text="40"
+                    android:textColor="#000"
                     android:textSize="20sp"
                     android:layout_gravity="center"
                     android:gravity="center"
@@ -70,7 +71,6 @@
 
                 <TextView
                     android:text="已完成"
-                    android:textColor="#DEDDE0"
                     android:layout_gravity="center"
                     android:gravity="top"
                     android:layout_weight="1"
