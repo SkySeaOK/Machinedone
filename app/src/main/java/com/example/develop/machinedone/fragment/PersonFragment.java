@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 
 import com.example.develop.machinedone.R;
 import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
@@ -104,6 +105,7 @@ public class PersonFragment extends Fragment {
 
         // display percentage values
         pieChart.setUsePercentValues(true);  //显示成百分比
+        pieChart.getDescription().setEnabled(false);  //设置pieChart图表的描述
         // mChart.setUnit(" €");
         // mChart.setDrawUnitsInChart(true);
 
@@ -120,7 +122,8 @@ public class PersonFragment extends Fragment {
         // undo all highlights
 //      pieChart.highlightValues(null);
 //      pieChart.invalidate();
-//        Legend mLegend = pieChart.getLegend();  //设置比例图
+       Legend mLegend = pieChart.getLegend();  //设置比例图
+        mLegend.setEnabled(false);
 //        mLegend.setPosition(Legend.LegendPosition.RIGHT_OF_CHART);  //最右边显示
 //      mLegend.setForm(LegendForm.LINE);  //设置比例图的形状，默认是方形
 //        mLegend.setXEntrySpace(7f);
