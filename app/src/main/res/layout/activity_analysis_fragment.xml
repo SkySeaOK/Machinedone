@@ -7,9 +7,11 @@
     android:orientation="vertical"
     tools:context="com.example.develop.machinedone.fragment.AnalysisFragment">
 <TextView
+    android:textColor="#000"
     android:text="前30天重复故障分析"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content" />
+
     <com.github.mikephil.charting.charts.BarChart
         android:layout_gravity="center"
         android:id="@+id/barChart"

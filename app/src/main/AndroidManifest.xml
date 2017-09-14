@@ -21,7 +21,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".fragment.AllProjectActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activity.CreateProjectActivity"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -53,8 +53,9 @@
         <activity android:name=".fragment.WorkPage" />
         <activity android:name=".fragment.MineFragment" />
         <activity android:name=".fragment.PersonFragment" />
+        <activity android:name=".fragment.PointCheckFragment" />
+        <activity android:name=".fragment.FixFragment"></activity>
         <activity android:name=".fragment.AnalysisFragment"></activity>
-        <activity android:name=".fragment.PointCheckFragment"></activity>
     </application>
 
 </manifest>

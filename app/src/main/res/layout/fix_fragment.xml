@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="#DEDDE0"
+android:orientation="vertical"
+tools:context="com.example.develop.machinedone.fragment.FixFragment">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_marginTop="8dp"
+    android:layout_weight="1"
+    android:background="#ffffff"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:textColor="#000"
+            android:layout_weight="2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="故障维修" />
+
+        <TextView
+            android:textColor="#000"
+            android:layout_weight="1"
+            android:text="计划维修"
+            android:layout_width="0dp"
+            android:layout_gravity="center_vertical"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <com.github.mikephil.charting.charts.PieChart
+            android:id="@+id/fix_pie_chart"
+            android:layout_weight="2"
+            android:layout_width="0dp"
+            android:layout_height="180dp"
+            android:layout_gravity="center" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:paddingTop="40dp"
+            android:paddingBottom="40dp"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp">
+
+                <TextView
+                    android:text="待维修"
+                    android:textSize="14sp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:text="0"
+                    android:textSize="14sp"
+                    android:layout_gravity="left"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp">
+
+                <TextView
+                    android:text="维修中"
+                    android:textSize="14sp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:text="0"
+                    android:textSize="14sp"
+                    android:layout_gravity="left"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp">
+
+                <TextView
+                    android:text="已完成"
+                    android:textSize="14sp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:text="0"
+                    android:textSize="14sp"
+                    android:layout_gravity="left"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp">
+
+                <TextView
+                    android:text="已拒绝"
+                    android:textSize="14sp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:text="0"
+                    android:textSize="14sp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
+
+<LinearLayout
+    android:background="#ffffff"
+    android:orientation="horizontal"
+    android:layout_weight="0.2"
+    android:layout_width="match_parent"
+    android:layout_height="0dp">
+
+    <TextView
+        android:text="今天"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_gravity="center"
+        android:background="#DEDDE0"
+        android:layout_width="1dp"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:text="本周"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_gravity="center"
+        android:background="#DEDDE0"
+        android:layout_width="1dp"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:text="本月"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content" />
+</LinearLayout>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_marginTop="5dp"
+    android:layout_weight="0.8"
+    android:background="#ffffff"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:paddingRight="1dp"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:background="#DEDDE0"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:background="#ffffff"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+
+            <TextView
+                android:layout_weight="0.5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:src="@mipmap/ic_repairlevel"
+                android:layout_gravity="center"
+                android:layout_weight="1.2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_weight="1.8"
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:text="报修等级"
+                    android:textColor="#000000"
+                    android:textSize="14sp"
+                    android:gravity="bottom"
+                    android:layout_gravity="left"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:text="有0条报修"
+                    android:gravity="top"
+                    android:layout_gravity="left"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="1dp"
+            android:background="#ffffff"
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+
+            <TextView
+                android:layout_weight="0.5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:src="@mipmap/ic_attachment"
+                android:layout_gravity="center"
+                android:layout_weight="1.2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_weight="1.8"
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:text="备件消耗"
+                    android:textColor="#000000"
+                    android:textSize="14sp"
+                    android:gravity="bottom"
+                    android:layout_gravity="left"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:text="消耗情况统计"
+                    android:gravity="top"
+                    android:layout_gravity="left"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:paddingRight="1dp"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:background="#DEDDE0"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:background="#ffffff"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+
+            <TextView
+                android:layout_weight="0.5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:src="@mipmap/ic_errortype"
+                android:layout_gravity="center"
+                android:layout_weight="1.2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_weight="1.8"
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:text="故障类型"
+                    android:textColor="#000000"
+                    android:textSize="14sp"
+                    android:gravity="bottom"
+                    android:layout_gravity="left"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:text="类型占比分析"
+                    android:gravity="top"
+                    android:layout_gravity="left"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="1dp"
+            android:background="#ffffff"
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+
+            <TextView
+                android:layout_weight="0.5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:src="@mipmap/ic_fixtime"
+                android:layout_gravity="center"
+                android:layout_weight="1.2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_weight="1.8"
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:text="维修工时"
+                    android:textColor="#000000"
+                    android:textSize="14sp"
+                    android:gravity="bottom"
+                    android:layout_gravity="left"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:text="共维修0.0小时"
+                    android:gravity="top"
+                    android:layout_gravity="left"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
+</LinearLayout>

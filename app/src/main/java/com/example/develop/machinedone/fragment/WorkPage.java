@@ -58,7 +58,7 @@ public class WorkPage extends Fragment {
         fragments.add(new TaskFragment());
         fragments.add(new PersonFragment());
         fragments.add(new PointCheckFragment());
-        fragments.add(TextFragment.newInstance(titles[3]));
+        fragments.add(new FixFragment());
         fragments.add(new AnalysisFragment());
         //设置适配器
         adapter = new MyAdapter(getFragmentManager());
