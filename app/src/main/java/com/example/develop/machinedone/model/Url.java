@@ -1,4 +1,4 @@
-package com.example.develop.machinedone.model;
+package  com.example.develop.machinedone.model;
 
 /**
  * Created by develop on 2017/7/28.

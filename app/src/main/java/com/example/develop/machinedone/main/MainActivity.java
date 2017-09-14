@@ -9,6 +9,7 @@ import android.os.Bundle;
 
 import com.example.develop.machinedone.R;
 import com.example.develop.machinedone.fragment.AllProjectActivity;
+import com.example.develop.machinedone.fragment.CommunityFragment;
 import com.example.develop.machinedone.fragment.MineFragment;
 import com.example.develop.machinedone.fragment.TextFragment;
 import com.example.develop.machinedone.fragment.WorkPage;
@@ -50,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         public MainAdapter(FragmentManager fm) {
             super(fm);
             fragments.add(new AllProjectActivity());
-            fragments.add(TextFragment.newInstance(titles[2]));
+            fragments.add(new CommunityFragment());
             fragments.add(new WorkPage());
             fragments.add(new MineFragment());
         }

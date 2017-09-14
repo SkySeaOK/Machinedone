@@ -33,4 +33,5 @@
     <string name="faq">常见问题</string>
     <string name="option">设置</string>
     <string name="detail_MachineDone">关于MachineDone</string>
+    <string name="title_activity_community_fragment">CommunityFragment</string>
 </resources>

@@ -54,8 +54,11 @@
         <activity android:name=".fragment.MineFragment" />
         <activity android:name=".fragment.PersonFragment" />
         <activity android:name=".fragment.PointCheckFragment" />
-        <activity android:name=".fragment.FixFragment"></activity>
-        <activity android:name=".fragment.AnalysisFragment"></activity>
+        <activity android:name=".fragment.FixFragment" />
+        <activity android:name=".fragment.AnalysisFragment" />
+        <activity
+            android:name=".fragment.CommunityFragment"
+            android:label="@string/title_activity_community_fragment" />
     </application>
 
 </manifest>
