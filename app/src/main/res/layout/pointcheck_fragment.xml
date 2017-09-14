@@ -151,21 +151,21 @@
                 android:layout_height="0dp">
 
                 <TextView
-                    android:layout_weight="0.5"
+                    android:layout_weight="0.4"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content" />
 
                 <ImageView
                     android:src="@mipmap/ic_sync"
                     android:layout_gravity="center"
-                    android:layout_weight="1.2"
+                    android:layout_weight="0.8"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content" />
 
                 <LinearLayout
-                    android:layout_weight="1.8"
+                    android:layout_weight="2.6"
                     android:orientation="vertical"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent">
 
                     <TextView
@@ -197,21 +197,21 @@
                 android:layout_height="0dp">
 
                 <TextView
-                    android:layout_weight="0.5"
+                    android:layout_weight="0.4"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content" />
 
                 <ImageView
                     android:src="@mipmap/ic_autohandle"
                     android:layout_gravity="center"
-                    android:layout_weight="1.2"
+                    android:layout_weight="0.8"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content" />
 
                 <LinearLayout
-                    android:layout_weight="1.8"
+                    android:layout_weight="2.6"
                     android:orientation="vertical"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent">
 
                     <TextView
@@ -251,21 +251,21 @@
                 android:layout_height="0dp">
 
                 <TextView
-                    android:layout_weight="0.5"
+                    android:layout_weight="0.4"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content" />
 
                 <ImageView
                     android:src="@mipmap/ic_launcher_details"
                     android:layout_gravity="center"
-                    android:layout_weight="1.2"
+                    android:layout_weight="0.8"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content" />
 
                 <LinearLayout
-                    android:layout_weight="1.8"
+                    android:layout_weight="2.6"
                     android:orientation="vertical"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent">
 
                     <TextView
@@ -297,21 +297,21 @@
                 android:layout_height="0dp">
 
                 <TextView
-                    android:layout_weight="0.5"
+                    android:layout_weight="0.4"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content" />
 
                 <ImageView
                     android:src="@mipmap/ic_handle_sync"
                     android:layout_gravity="center"
-                    android:layout_weight="1.2"
+                    android:layout_weight="0.8"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content" />
 
                 <LinearLayout
-                    android:layout_weight="1.8"
+                    android:layout_weight="2.6"
                     android:orientation="vertical"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent">
 
                     <TextView

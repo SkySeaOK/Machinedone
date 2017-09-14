@@ -119,7 +119,7 @@
                     android:layout_height="wrap_content" />
 
                 <TextView
-                    android:text="点击包养(人)"
+                    android:text="点击保养(人)"
                     android:gravity="center"
                     android:layout_gravity="center"
                     android:layout_weight="1"

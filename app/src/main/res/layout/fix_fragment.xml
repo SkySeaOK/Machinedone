@@ -229,21 +229,21 @@ tools:context="com.example.develop.machinedone.fragment.FixFragment">
             android:layout_height="0dp">
 
             <TextView
-                android:layout_weight="0.5"
+                android:layout_weight="0.4"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content" />
 
             <ImageView
                 android:src="@mipmap/ic_repairlevel"
                 android:layout_gravity="center"
-                android:layout_weight="1.2"
+                android:layout_weight="0.8"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content" />
 
             <LinearLayout
-                android:layout_weight="1.8"
+                android:layout_weight="2.6"
                 android:orientation="vertical"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="match_parent">
 
                 <TextView
@@ -275,21 +275,21 @@ tools:context="com.example.develop.machinedone.fragment.FixFragment">
             android:layout_height="0dp">
 
             <TextView
-                android:layout_weight="0.5"
+                android:layout_weight="0.4"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content" />
 
             <ImageView
                 android:src="@mipmap/ic_attachment"
                 android:layout_gravity="center"
-                android:layout_weight="1.2"
+                android:layout_weight="0.8"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content" />
 
             <LinearLayout
-                android:layout_weight="1.8"
+                android:layout_weight="2.6"
                 android:orientation="vertical"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="match_parent">
 
                 <TextView
@@ -329,21 +329,21 @@ tools:context="com.example.develop.machinedone.fragment.FixFragment">
             android:layout_height="0dp">
 
             <TextView
-                android:layout_weight="0.5"
+                android:layout_weight="0.4"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content" />
 
             <ImageView
                 android:src="@mipmap/ic_errortype"
                 android:layout_gravity="center"
-                android:layout_weight="1.2"
+                android:layout_weight="0.8"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content" />
 
             <LinearLayout
-                android:layout_weight="1.8"
+                android:layout_weight="2.6"
                 android:orientation="vertical"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="match_parent">
 
                 <TextView
@@ -375,21 +375,21 @@ tools:context="com.example.develop.machinedone.fragment.FixFragment">
             android:layout_height="0dp">
 
             <TextView
-                android:layout_weight="0.5"
+                android:layout_weight="0.4"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content" />
 
             <ImageView
                 android:src="@mipmap/ic_fixtime"
                 android:layout_gravity="center"
-                android:layout_weight="1.2"
+                android:layout_weight="0.8"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content" />
 
             <LinearLayout
-                android:layout_weight="1.8"
+                android:layout_weight="2.6"
                 android:orientation="vertical"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="match_parent">
 
                 <TextView
