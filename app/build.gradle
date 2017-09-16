@@ -38,5 +38,7 @@ dependencies {
     compile 'com.github.PhilJay:MPAndroidChart:v3.0.2'
     compile 'com.android.support:recyclerview-v7:25.2.0'
     compile 'cc.solart:turbo-recyclerview-helper:1.0.3-beta'
+    compile 'com.github.pinguo-zhouwei:MZBannerView:v1.0.1'
+
 
 }

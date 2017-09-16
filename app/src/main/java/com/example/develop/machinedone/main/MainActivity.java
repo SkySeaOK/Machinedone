@@ -1,17 +1,16 @@
 package com.example.develop.machinedone.main;
 
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 
 import com.example.develop.machinedone.R;
 import com.example.develop.machinedone.fragment.AllProjectActivity;
-import com.example.develop.machinedone.fragment.CommunityFragment;
+import com.example.develop.machinedone.fragment.CircleMainFragment;
 import com.example.develop.machinedone.fragment.MineFragment;
-import com.example.develop.machinedone.fragment.TextFragment;
 import com.example.develop.machinedone.fragment.WorkPage;
 import com.yinglan.alphatabs.AlphaTabsIndicator;
 
@@ -51,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         public MainAdapter(FragmentManager fm) {
             super(fm);
             fragments.add(new AllProjectActivity());
-            fragments.add(new CommunityFragment());
+            fragments.add(new CircleMainFragment());
             fragments.add(new WorkPage());
             fragments.add(new MineFragment());
         }
