@@ -52,9 +52,9 @@ public class CommunityFragment extends Fragment
             }
         });
         mRecyclerView.addItemDecoration(decoration);
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
+//        new Thread(new Runnable() {
+//            @Override
+//            public void run() {
                 Type listType = new TypeToken<ArrayList<City>>() {
                 }.getType();
                 Gson gson = new Gson();
@@ -63,8 +63,8 @@ public class CommunityFragment extends Fragment
                         adapter = new CityAdapter(getContext(), list);
                         mRecyclerView.setAdapter(adapter);
 
-            }
-        }).start();
+//            }
+//        }).start();
         mSideBarView.setOnTouchLetterChangeListener(new WaveSideBarView.OnTouchLetterChangeListener() {
             @Override
             public void onLetterChange(String letter) {
