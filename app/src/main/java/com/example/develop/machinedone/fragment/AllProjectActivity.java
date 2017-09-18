@@ -75,7 +75,8 @@ public class AllProjectActivity extends Fragment implements View.OnClickListener
         final Call<MainList> list = apiService.getList();
         list.enqueue(new Callback<MainList>() {
             @Override
-            public void onResponse(Call<MainList> call, Response<MainList> response) {
+            public void onResponse(Call<MainList> call, Response<MainList> response)
+            {
                 menuitemBeans.addAll(response.body().getMenuitem());
                 listView.setAdapter(mainListAdapter);
             }

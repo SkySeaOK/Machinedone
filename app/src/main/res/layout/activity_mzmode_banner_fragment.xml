@@ -18,8 +18,7 @@
         app:indicatorPaddingLeft="10dp"
         />
 
-    <ListView
-        android:id="@+id/topic_listview"
+    <ListView android:id="@android:id/list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"></ListView>
 </LinearLayout>

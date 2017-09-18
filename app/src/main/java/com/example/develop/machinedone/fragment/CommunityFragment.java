@@ -41,13 +41,15 @@ public class CommunityFragment extends Fragment
     private void init()
     {
         mRecyclerView = inflate.findViewById(R.id.recycler_view);
-        mSideBarView = (WaveSideBarView) inflate.findViewById(R.id.side_view);
+        mSideBarView = inflate.findViewById(R.id.side_view);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         final PinnedHeaderDecoration decoration = new PinnedHeaderDecoration();
-        decoration.registerTypePinnedHeader(1, new PinnedHeaderDecoration.PinnedHeaderCreator() {
+        decoration.registerTypePinnedHeader(1, new PinnedHeaderDecoration.PinnedHeaderCreator()
+        {
             @Override
-            public boolean create(RecyclerView parent, int adapterPosition) {
+            public boolean create(RecyclerView parent, int adapterPosition)
+            {
                 return true;
             }
         });

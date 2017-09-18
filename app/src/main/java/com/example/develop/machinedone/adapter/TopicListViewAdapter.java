@@ -60,7 +60,7 @@ public class TopicListViewAdapter extends BaseAdapter {
         topic.setText(mainlist.get(i).getTopic());
         agreetext.setText(mainlist.get(i).getAgreecount());
         thanktext.setText(mainlist.get(i).getThankcount());
-        topicimage.setImageResource(mainlist.get(i).getImageid());
+        topicimage.setImageResource(R.mipmap.ic_itemlogo);
         return inflate;
     }
 }

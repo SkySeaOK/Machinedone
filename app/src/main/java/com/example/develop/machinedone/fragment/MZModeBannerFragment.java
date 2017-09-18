@@ -3,6 +3,7 @@ package com.example.develop.machinedone.fragment;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
@@ -35,7 +36,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * Created by zhouwei on 17/5/31.
  */
 
-public class MZModeBannerFragment extends ListFragment{
+public class MZModeBannerFragment extends ListFragment {
     public static final String TAG = "MZModeBannerFragment";
     public static final int []BANNER = new int[]{R.mipmap.banner1,R.mipmap.banner2,R.mipmap.banner3,R.mipmap.banner4,R.mipmap.banner5};
     private MZBannerView mMZBanner;
@@ -52,7 +53,8 @@ public class MZModeBannerFragment extends ListFragment{
     private void initView(View view) {
 
         mMZBanner = (MZBannerView) view.findViewById(R.id.banner);
-        mMZBanner.setBannerPageClickListener(new MZBannerView.BannerPageClickListener() {
+        mMZBanner.setBannerPageClickListener(new MZBannerView.BannerPageClickListener()
+        {
             @Override
             public void onPageClick(View view, int position) {
                 Toast.makeText(getContext(),"click page:"+position,Toast.LENGTH_LONG).show();
@@ -119,9 +121,11 @@ public class MZModeBannerFragment extends ListFragment{
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_mzmode_banner_fragment,null);
-
-        topicListView = view.findViewById(R.id.topic_listview);
-        topicListViewAdapter = new TopicListViewAdapter(this, menuitemBeans);
+        topicListView=view.findViewById(android.R.id.list);
+        // topicListView = getListView();
+        // topicListView.setTextFilterEnabled(true);
+       // topicListView = view.findViewById(R.id.topic_listview);
+        topicListViewAdapter = new TopicListViewAdapter(getContext(), menuitemBeans);
 //添加数据到listview中
         Retrofit retrofit = new Retrofit.Builder().baseUrl(Url.url).addConverterFactory(GsonConverterFactory.create()).build();
         ApiService apiService = retrofit.create(ApiService.class);
@@ -135,7 +139,7 @@ public class MZModeBannerFragment extends ListFragment{
 
             @Override
             public void onFailure(Call<TopicListViewItem> call, Throwable t) {
-
+                Toast.makeText(getContext(), "aaaaaa", Toast.LENGTH_LONG).show();
             }
 
         });

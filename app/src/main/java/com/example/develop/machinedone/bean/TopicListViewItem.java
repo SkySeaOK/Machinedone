@@ -7,6 +7,7 @@ import java.util.List;
  */
 
 public class TopicListViewItem {
+
     private List<MenuitemBean> menuitem;
 
     public List<MenuitemBean> getMenuitem() {
@@ -19,11 +20,16 @@ public class TopicListViewItem {
 
     public static class MenuitemBean {
         /**
-         * value : New
-         * onclick : CreateNewDoc(asdasdasda)
+         * topic : New
+         * agreecount : 1
+         * thankcount : 2
+         * imageid : R.mipmap.title_img
          */
 
         private String topic;
+        private String agreecount;
+        private String thankcount;
+        private String imageid;
 
         public String getTopic() {
             return topic;
@@ -33,8 +39,6 @@ public class TopicListViewItem {
             this.topic = topic;
         }
 
-        private String agreecount;
-
         public String getAgreecount() {
             return agreecount;
         }
@@ -42,8 +46,6 @@ public class TopicListViewItem {
         public void setAgreecount(String agreecount) {
             this.agreecount = agreecount;
         }
-
-        private String thankcount;
 
         public String getThankcount() {
             return thankcount;
@@ -53,13 +55,11 @@ public class TopicListViewItem {
             this.thankcount = thankcount;
         }
 
-        private int imageid;
-
-        public int getImageid() {
+        public String getImageid() {
             return imageid;
         }
 
-        public void setImageid(int imageid) {
+        public void setImageid(String imageid) {
             this.imageid = imageid;
         }
     }
