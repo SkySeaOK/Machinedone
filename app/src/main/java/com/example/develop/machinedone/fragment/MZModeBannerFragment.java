@@ -3,7 +3,6 @@ package com.example.develop.machinedone.fragment;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
@@ -53,8 +52,7 @@ public class MZModeBannerFragment extends ListFragment {
     private void initView(View view) {
 
         mMZBanner = (MZBannerView) view.findViewById(R.id.banner);
-        mMZBanner.setBannerPageClickListener(new MZBannerView.BannerPageClickListener()
-        {
+        mMZBanner.setBannerPageClickListener(new MZBannerView.BannerPageClickListener() {
             @Override
             public void onPageClick(View view, int position) {
                 Toast.makeText(getContext(),"click page:"+position,Toast.LENGTH_LONG).show();
