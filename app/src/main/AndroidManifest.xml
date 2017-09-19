@@ -60,7 +60,8 @@
             android:name=".fragment.CommunityFragment"
             android:label="@string/title_activity_community_fragment" />
         <activity android:name=".fragment.CircleMainFragment" />
-        <activity android:name=".fragment.MZModeBannerFragment"></activity>
+        <activity android:name=".fragment.MZModeBannerFragment" />
+        <activity android:name=".fragment.CoterieFragment"></activity>
     </application>
 
 </manifest>

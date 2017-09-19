@@ -52,7 +52,7 @@ public class CircleMainFragment extends Fragment {
         mTabs = (TabsView) inflate.findViewById(R.id.circletabslayout);
 
         fragments = new ArrayList<Fragment>();
-        fragments.add(new CommunityFragment());
+        fragments.add(new CoterieFragment());
         fragments.add(new MZModeBannerFragment());
         fragments.add(new ChoicenessFragment());
         fragments.add(new ChoicenessFragment());

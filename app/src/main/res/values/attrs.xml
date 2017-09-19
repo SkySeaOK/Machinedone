@@ -9,4 +9,12 @@
         <attr name="sidebarRadius" format="dimension"/>
         <attr name="sidebarBallRadius" format="dimension"/>
     </declare-styleable>
+
+
+<declare-styleable name="BubbleScroller">
+    <attr name="bubbleScroller_textSize" format="reference"/>
+    <attr name="bubbleScroller_textColor" format="reference"/>
+    <attr name="bubbleScroller_highlightColor" format="reference"/>
+    <attr name="bubbleScroller_highlightSize" format="reference"/>
+</declare-styleable>
 </resources>
