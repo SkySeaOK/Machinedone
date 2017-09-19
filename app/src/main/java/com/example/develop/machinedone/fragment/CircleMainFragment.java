@@ -30,12 +30,12 @@ public class CircleMainFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         inflate = inflater.inflate(R.layout.activity_circle_main_fragment, container, false);
+        initData();//初始化
         return inflate;
     }
 
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        initData();//初始化
         ImageView toolbarImg = inflate.findViewById(R.id.toolbar_img);
         ImageView toolbarImg1 = inflate.findViewById(R.id.toolbar_back);
         TextView username = inflate.findViewById(R.id.toolbar_username);
@@ -54,11 +54,12 @@ public class CircleMainFragment extends Fragment {
         fragments = new ArrayList<Fragment>();
         fragments.add(new CommunityFragment());
         fragments.add(new MZModeBannerFragment());
-        fragments.add(new PointCheckFragment());
-        fragments.add(new FixFragment());
+        fragments.add(new ChoicenessFragment());
+        fragments.add(new ChoicenessFragment());
         //设置适配器
         adapter = new MyAdapter(getFragmentManager());
         mViewPager.setAdapter(adapter);
+        mViewPager.setOffscreenPageLimit(4);
         //初始化选项卡
         mTabs.setTabs("通讯录", "话题", "精选", "收藏");
         mTabs.setOnTabsItemClickListener(new TabsView.OnTabsItemClickListener() {
