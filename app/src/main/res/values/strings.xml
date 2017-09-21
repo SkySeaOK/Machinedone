@@ -159,5 +159,8 @@
     <string name="ln_58">Ricci</string>
     <string name="ln_59">Holt</string>
     <string name="ln_60">Vergoossen</string>
+    <string name="department">部门</string>
+    <string name="station">岗位</string>
+    <string name="phone_numb">手机</string>
 
 </resources>

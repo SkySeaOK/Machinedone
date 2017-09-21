@@ -1,5 +1,6 @@
 package com.example.develop.machinedone.fragment;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.develop.machinedone.R;
+import com.example.develop.machinedone.activity.ContactInfoActivity;
 import com.example.develop.machinedone.adapter.ContactAdapter;
 import com.example.develop.machinedone.adapter.ContactScrollerAdapter;
 import com.example.develop.machinedone.mock.Contact;
@@ -41,6 +43,15 @@ public class CoterieFragment extends Fragment {
        scroller.setSectionScrollAdapter(mContactScrollerAdapter);
         recycler.setLayoutManager(mLayoutManager);
         recycler.setAdapter(mContactAdapter);
+
+      /*  recycler.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(getContext(), ContactInfoActivity.class);
+                startActivity(intent);
+            }
+        });*/
         scroller.showSectionHighlight(0);
         recycler.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
