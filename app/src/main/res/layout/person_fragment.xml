@@ -9,6 +9,7 @@
     tools:context="com.example.develop.machinedone.fragment.PersonFragment">
 
     <LinearLayout
+        android:padding="10dp"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="8dp"
@@ -33,7 +34,8 @@
                 android:id="@+id/consume_pie_chart"
                 android:layout_weight="2"
                 android:layout_width="0dp"
-                android:layout_height="180dp"
+                android:padding="10dp"
+                android:layout_height="match_parent"
                 android:layout_gravity="center" />
 
             <LinearLayout

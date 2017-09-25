@@ -6,9 +6,9 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.example.develop.machinedone.activity.ImageDetail">
+
 <ImageView
-    android:layout_gravity="center
-"
+    android:layout_gravity="center"
     android:id="@+id/img_detail"
     android:layout_width="match_parent"
     android:layout_height="match_parent" />

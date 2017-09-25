@@ -48,10 +48,16 @@ public class AllProjectActivity extends Fragment implements View.OnClickListener
     }
 
     private void initView() {
-
+        //fragment title
         ImageView toolbarImg =inflate.findViewById(R.id.toolbar_img);
         ImageView toolbarImg1 = inflate.findViewById(R.id.toolbar_back);
-        TextView username = inflate.findViewById(R.id.toolbar_username);
+        TextView userText = inflate.findViewById(R.id.toolbar_username);
+        toolbarImg.setImageResource(R.mipmap.title_img);
+        toolbarImg1.setImageResource(R.mipmap.ic_thok1);
+        userText.setText("user");
+        toolbarImg.setOnClickListener(this);
+        TextView toolbarTitle = inflate.findViewById(R.id.title_toolbar);
+        toolbarTitle.setText(R.string.toolbar_title);
         listView = inflate.findViewById(R.id.main_list);
         mainListAdapter = new MainListAdapter(getActivity(), menuitemBeans);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -63,13 +69,8 @@ public class AllProjectActivity extends Fragment implements View.OnClickListener
             }
         });
         at.markushi.ui.CircleButton btn = (at.markushi.ui.CircleButton)inflate.findViewById(R.id.addlist);
-        toolbarImg.setImageResource(R.mipmap.title_img);
-        toolbarImg1.setImageResource(R.mipmap.ic_thok1);
-        username.setText("User");
         btn.setOnClickListener(this);
-        toolbarImg.setOnClickListener(this);
-        TextView toolbarTitle = inflate.findViewById(R.id.title_toolbar);
-        toolbarTitle.setText(R.string.toolbar_title);
+
         Retrofit retrofit = new Retrofit.Builder().baseUrl(Url.url).addConverterFactory(GsonConverterFactory.create()).build();
         ApiService apiService = retrofit.create(ApiService.class);
         final Call<MainList> list = apiService.getList();

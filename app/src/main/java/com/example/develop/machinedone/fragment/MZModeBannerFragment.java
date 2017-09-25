@@ -42,6 +42,7 @@ public class MZModeBannerFragment extends ListFragment {
     private ListView topicListView;
     private TopicListViewAdapter topicListViewAdapter;
     private List<TopicListViewItem.MenuitemBean> menuitemBeans = new ArrayList<>();
+    private boolean isViewPrepared=false;//是否初始化完成
 
 
 
@@ -95,8 +96,32 @@ public class MZModeBannerFragment extends ListFragment {
 //            }
 //        });
 
+        topicListView=view.findViewById(android.R.id.list);
+        topicListViewAdapter = new TopicListViewAdapter(getContext(), menuitemBeans);
 
+    }
 
+    private void initData() {
+        // topicListView = getListView();
+        // topicListView.setTextFilterEnabled(true);
+        // topicListView = view.findViewById(R.id.topic_listview);
+//添加数据到listview中
+        Retrofit retrofit = new Retrofit.Builder().baseUrl(Url.url).addConverterFactory(GsonConverterFactory.create()).build();
+        ApiService apiService = retrofit.create(ApiService.class);
+        final Call<TopicListViewItem> list = apiService.getTopic_json();
+        list.enqueue(new Callback<TopicListViewItem>() {
+            @Override
+            public void onResponse(Call<TopicListViewItem> call, Response<TopicListViewItem> response) {
+                menuitemBeans.addAll(response.body().getMenuitem());
+                topicListView.setAdapter(topicListViewAdapter);
+            }
+
+            @Override
+            public void onFailure(Call<TopicListViewItem> call, Throwable t) {
+                Toast.makeText(getContext(), "aaaaaa", Toast.LENGTH_LONG).show();
+            }
+
+        });
     }
 
     public static class BannerViewHolder implements MZViewHolder<Integer> {
@@ -119,30 +144,26 @@ public class MZModeBannerFragment extends ListFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_mzmode_banner_fragment,null);
-        topicListView=view.findViewById(android.R.id.list);
-        // topicListView = getListView();
-        // topicListView.setTextFilterEnabled(true);
-       // topicListView = view.findViewById(R.id.topic_listview);
-        topicListViewAdapter = new TopicListViewAdapter(getContext(), menuitemBeans);
-//添加数据到listview中
-        Retrofit retrofit = new Retrofit.Builder().baseUrl(Url.url).addConverterFactory(GsonConverterFactory.create()).build();
-        ApiService apiService = retrofit.create(ApiService.class);
-        final Call<TopicListViewItem> list = apiService.getTopic_json();
-        list.enqueue(new Callback<TopicListViewItem>() {
-            @Override
-            public void onResponse(Call<TopicListViewItem> call, Response<TopicListViewItem> response) {
-                menuitemBeans.addAll(response.body().getMenuitem());
-                topicListView.setAdapter(topicListViewAdapter);
-            }
 
-            @Override
-            public void onFailure(Call<TopicListViewItem> call, Throwable t) {
-                Toast.makeText(getContext(), "aaaaaa", Toast.LENGTH_LONG).show();
-            }
-
-        });
         initView(view);
+        if (!isViewPrepared&&getUserVisibleHint()) {//尚未初始化view,不能执行initData()方法[会报空指针]
+
+            initData();
+            topicListViewAdapter.notifyDataSetChanged();
+
+        }
+        isViewPrepared=true;//isViewPrepared判断和赋值位置不能变,考虑setUserVisibleHint更新数据
         return view;
+    }
+
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        // 判断该Fragment时候已经正在前台显示，就可以知道什么时候去加载数据了
+        if (isVisibleToUser && isViewPrepared)
+        {
+            menuitemBeans.clear();
+            initData();
+        }
+        super.setUserVisibleHint(isVisibleToUser);
     }
 
     @Override

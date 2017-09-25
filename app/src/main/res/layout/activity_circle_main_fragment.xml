@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context="com.example.develop.machinedone.fragment.CircleMainFragment">
 
-    <include layout="@layout/title"/>
+    <include layout="@layout/fragment_title"/>
 
     <com.example.develop.machinedone.tool.TabsView
         android:id="@+id/circletabslayout"

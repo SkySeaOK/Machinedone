@@ -1,9 +1,7 @@
 package com.example.develop.machinedone.fragment;
 
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,6 +28,7 @@ public class MineFragment extends Fragment {
     {
         inflate = inflater.inflate(R.layout.activity_mine_fragment, container, false);
         init();//初始化
+
         computations();//运算
         return inflate;
     }
@@ -50,6 +49,7 @@ public class MineFragment extends Fragment {
         circleRangeView = inflate.findViewById(R.id.circleRangeView);
         ImageView toolbarImg =inflate.findViewById(R.id.toolbar_img);
         ImageView toolbarImg1 = inflate.findViewById(R.id.toolbar_back);
+        toolbarImg1.setImageResource(R.mipmap.ic_thok1);
         TextView username = inflate.findViewById(R.id.toolbar_username);
         TextView title = inflate.findViewById(R.id.title_toolbar);
         username.setText("话题");
